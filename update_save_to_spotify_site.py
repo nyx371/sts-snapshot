@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the Save to Spotify chatter tracker index page."""
+"""Generate the Save to Spotify reach tracker index page."""
 from __future__ import annotations
 
 import datetime as dt
@@ -290,9 +290,17 @@ def github_stats():
     try:
         repo = fetch_json(f"https://api.github.com/repos/{TRACKED_REPO}")
         issues = fetch_json(f"https://api.github.com/repos/{TRACKED_REPO}/issues?state=open&per_page=10")
+        releases = fetch_json(f"https://api.github.com/repos/{TRACKED_REPO}/releases")
+        release_downloads = sum(
+            int(asset.get("download_count") or 0)
+            for release in releases
+            for asset in (release.get("assets") or [])
+            if "sha256" not in (asset.get("name") or "").lower()
+        )
         return {
             "stars": repo.get("stargazers_count"),
             "forks": repo.get("forks_count"),
+            "release_downloads": release_downloads,
             "open_issues": repo.get("open_issues_count"),
             "updated_at": repo.get("updated_at"),
             "latest_open": [
@@ -1362,6 +1370,7 @@ def main():
         gh_stats_html = render_stat_grid([
             ("Stars", gh.get("stars")),
             ("Forks", gh.get("forks")),
+            ("Downloads", gh.get("release_downloads")),
             ("Open issues/PRs", gh.get("open_issues")),
             ("Updated", time_html(gh.get("updated_at"), now_utc)),
         ])
@@ -1436,7 +1445,7 @@ def main():
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Save to Spotify chatter tracker</title>
+  <title>Save to Spotify reach tracker</title>
   <style>
     :root {{ color-scheme: dark; --bg:#080812; --card:#121326dd; --text:#f7f3ff; --muted:#bcb5d6; --line:#2c2850; --accent:#1ed760; --violet:#8d7aff; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }}
     body {{ margin:0; min-height:100vh; color:var(--text); background: radial-gradient(circle at top left, #263a24, transparent 28rem), radial-gradient(circle at top right, #352060, transparent 32rem), var(--bg); }}
@@ -1482,7 +1491,7 @@ def main():
 </head>
 <body>
   <header>
-    <h1>Save to Spotify chatter tracker</h1>
+    <h1>Save to Spotify reach tracker</h1>
     <p class="lede">A lightweight hourly snapshot of where people are talking about Spotify’s beta CLI for saving AI-generated personal podcasts into Spotify.</p>
     <div class="meta">
       <span class="pill">Last updated: {last_updated_html(now_local, now_utc)}</span>
