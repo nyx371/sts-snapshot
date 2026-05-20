@@ -1288,6 +1288,13 @@ def update_github_star_history(state: dict, gh: dict | None, today: dt.date):
     return history
 
 
+def update_github_download_history(state: dict, gh: dict | None, today: dt.date):
+    history = state.setdefault("github_release_downloads_by_day", {})
+    if gh and gh.get("release_downloads") is not None:
+        history[today.isoformat()] = int(gh["release_downloads"])
+    return history
+
+
 def render_github_stars_chart(history: dict, today: dt.date, now_utc: dt.datetime) -> str:
     series = {}
     for day, stars in (history or {}).items():
@@ -1301,6 +1308,28 @@ def render_github_stars_chart(history: dict, today: dt.date, now_utc: dt.datetim
     else:
         note = ""
     return render_line_chart(series, today, "No GitHub star history recorded yet.", "Line chart of GitHub stars per day", note, "stars")
+
+
+def render_github_downloads_chart(history: dict, today: dt.date, now_utc: dt.datetime) -> str:
+    cumulative = {}
+    for day, downloads in (history or {}).items():
+        try:
+            cumulative[dt.date.fromisoformat(day)] = int(downloads)
+        except Exception:
+            continue
+    daily = {}
+    previous_downloads = None
+    for day in sorted(cumulative):
+        downloads = cumulative[day]
+        if previous_downloads is not None:
+            daily[day] = max(0, downloads - previous_downloads)
+        previous_downloads = downloads
+    if daily:
+        latest_day = max(daily)
+        note = f'Daily GitHub release downloads are computed from cumulative release asset downloads, tracked daily starting {time_html(min(cumulative).isoformat(), now_utc)}. Latest: {daily[latest_day]} downloads on {time_html(latest_day.isoformat(), now_utc)}.'
+    else:
+        note = ""
+    return render_line_chart(daily, today, "Need at least two days of GitHub download snapshots before daily downloads can be plotted.", "Line chart of daily GitHub release downloads", note, "downloads")
 
 
 def render():
@@ -1360,10 +1389,12 @@ def main():
     seen_state["initialized"] = True
     seen_state["last_updated_at"] = now_utc.isoformat()
     github_star_history = update_github_star_history(seen_state, gh, now_local.date())
+    github_download_history = update_github_download_history(seen_state, gh, now_local.date())
     save_seen_state(seen_state)
     new_items_html = render_new_items(new_items, initialized, now_utc)
     social_chart_html = render_social_posts_chart(seen, now_local.date(), now_utc)
     github_stars_chart_html = render_github_stars_chart(github_star_history, now_local.date(), now_utc)
+    github_downloads_chart_html = render_github_downloads_chart(github_download_history, now_local.date(), now_utc)
 
     gh_stats_html = "<p class='empty'>GitHub stats unavailable.</p>"
     if gh:
@@ -1513,6 +1544,7 @@ def main():
       <section class="card"><h2>GitHub repo pulse</h2>{gh_stats_html}<ul>{issues_html}</ul></section>
     </div>
     <section class="card"><h2>GitHub stars per day</h2>{github_stars_chart_html}</section>
+    <section class="card"><h2>GitHub downloads per day</h2>{github_downloads_chart_html}</section>
     <section class="card"><h2>Latest news pickup</h2><ul>{news_html}</ul></section>
     <section class="card"><h2>Social + media posts per day</h2>{social_chart_html}</section>
     <section class="social-sites">
