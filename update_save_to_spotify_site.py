@@ -1311,25 +1311,18 @@ def render_github_stars_chart(history: dict, today: dt.date, now_utc: dt.datetim
 
 
 def render_github_downloads_chart(history: dict, today: dt.date, now_utc: dt.datetime) -> str:
-    cumulative = {}
+    series = {}
     for day, downloads in (history or {}).items():
         try:
-            cumulative[dt.date.fromisoformat(day)] = int(downloads)
+            series[dt.date.fromisoformat(day)] = int(downloads)
         except Exception:
             continue
-    daily = {}
-    previous_downloads = None
-    for day in sorted(cumulative):
-        downloads = cumulative[day]
-        if previous_downloads is not None:
-            daily[day] = max(0, downloads - previous_downloads)
-        previous_downloads = downloads
-    if daily:
-        latest_day = max(daily)
-        note = f'Daily GitHub release downloads are computed from cumulative release asset downloads, tracked daily starting {time_html(min(cumulative).isoformat(), now_utc)}. Latest: {daily[latest_day]} downloads on {time_html(latest_day.isoformat(), now_utc)}.'
+    if series:
+        latest_day = max(series)
+        note = f'GitHub release downloads tracked daily starting {time_html(min(series).isoformat(), now_utc)}. Latest: {series[latest_day]} downloads on {time_html(latest_day.isoformat(), now_utc)}.'
     else:
         note = ""
-    return render_line_chart(daily, today, "Need at least two days of GitHub download snapshots before daily downloads can be plotted.", "Line chart of daily GitHub release downloads", note, "downloads")
+    return render_line_chart(series, today, "No GitHub download history recorded yet.", "Line chart of GitHub release downloads per day", note, "downloads")
 
 
 def render():
@@ -1544,7 +1537,7 @@ def main():
       <section class="card"><h2>GitHub repo pulse</h2>{gh_stats_html}<ul>{issues_html}</ul></section>
     </div>
     <section class="card"><h2>GitHub stars per day</h2>{github_stars_chart_html}</section>
-    <section class="card"><h2>GitHub downloads per day</h2>{github_downloads_chart_html}</section>
+    <section class="card"><h2>GitHub downloads over time</h2>{github_downloads_chart_html}</section>
     <section class="card"><h2>Latest news pickup</h2><ul>{news_html}</ul></section>
     <section class="card"><h2>Social + media posts per day</h2>{social_chart_html}</section>
     <section class="social-sites">
