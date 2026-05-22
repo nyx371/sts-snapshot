@@ -48,6 +48,7 @@ YOUTUBE_QUERIES = [
     '"Spotify Personal Podcasts" "AI agents"',
 ]
 CLAWHUB_URL = "https://clawhub.ai/spotify/save-to-spotify"
+SPOTIFY_COMMUNITY_URL = "https://community.spotify.com/t5/Other-Podcasts-Partners-etc/Save-to-Spotify-Feedback-amp-Issues/m-p/7446423#M132368"
 
 CURATED_SOCIAL = [
     {
@@ -439,6 +440,51 @@ def reddit_hits(limit: int = 100):
         return out, None
     except BaseException as e:
         return [], f"Reddit reader failed: {e!r}"
+
+
+def spotify_community_threads():
+    """Track the official Spotify Community feedback/issues thread."""
+    try:
+        req = urllib.request.Request(
+            SPOTIFY_COMMUNITY_URL,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.9",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=20) as res:
+            doc = res.read().decode("utf-8", "replace")
+
+        title_match = re.search(r'<meta\s+content="([^"]+)"\s+property="og:title"', doc, re.I)
+        if not title_match:
+            title_match = re.search(r"<title>\s*(.*?)\s*</title>", doc, re.I | re.S)
+        title = _strip_html(title_match.group(1)) if title_match else "Save to Spotify - Feedback & Issues"
+        title = re.sub(r"\s+-\s+The Spotify Community\s*$", "", title).strip()
+
+        author_match = re.search(r'<span class="login-bold">([^<]+)</span>', doc, re.I)
+        author = _strip_html(author_match.group(1)) if author_match else "Spotify Community"
+
+        replies_match = re.search(r'class="[^"]*reply-count[^"]*"[^>]*>\s*([0-9,]+)\s+Replies', doc, re.I | re.S)
+        replies = replies_match.group(1).replace(",", "") if replies_match else None
+
+        published_match = re.search(r'<meta\s+content="([^"]+)"\s+property="article:published_time"', doc, re.I)
+        published_at = published_match.group(1) if published_match else None
+
+        desc_match = re.search(r'<meta\s+content="([^"]+)"\s+property="og:description"', doc, re.I)
+        snippet = _strip_html(desc_match.group(1)) if desc_match else "Official feedback and issues thread for Save to Spotify."
+
+        return [{
+            "title": title,
+            "url": SPOTIFY_COMMUNITY_URL,
+            "source": "Spotify Community",
+            "author": author,
+            "replies": replies if replies is not None else "?",
+            "published_at": published_at,
+            "snippet": snippet,
+        }], None
+    except Exception as e:
+        return [], f"Spotify Community fetch failed: {e!r}"
 
 
 def _strip_tags(value: str) -> str:
@@ -1043,7 +1089,7 @@ def load_youtube_recent_posts():
     return out, None
 
 
-def collect_seen_items(news, gh, hn, reddit, youtube, x_search, x_browser, now_utc: dt.datetime, remove_urls: set[str]):
+def collect_seen_items(news, gh, hn, reddit, spotify_community, youtube, x_search, x_browser, now_utc: dt.datetime, remove_urls: set[str]):
     items = []
     for i in news:
         items.append({"source": i.get("source") or "News", "title": i.get("title"), "url": i.get("url"), "meta": i.get("published"), "published_at": i.get("published")})
@@ -1061,6 +1107,8 @@ def collect_seen_items(news, gh, hn, reddit, youtube, x_search, x_browser, now_u
         items.append({"source": "Hacker News", "title": i.get("title"), "url": i.get("url"), "meta": f"{i.get('points')} points · {i.get('comments')} comments", "published_at": i.get("created_at")})
     for i in reddit:
         items.append({"source": i.get("subreddit") or "Reddit", "title": i.get("title"), "url": i.get("url"), "meta": f"u/{i.get('author')} · {i.get('score')} pts · {i.get('comments')} comments", "published_at": i.get("created_at") or i.get("created")})
+    for i in spotify_community:
+        items.append({"source": i.get("source") or "Spotify Community", "title": i.get("title"), "url": i.get("url"), "meta": f"{i.get('replies')} replies · by {i.get('author')}", "snippet": i.get("snippet"), "published_at": i.get("published_at")})
     for i in youtube:
         meta = " · ".join(part for part in [i.get("channel"), i.get("published"), i.get("views"), i.get("duration")] if part)
         items.append({"source": "YouTube", "title": i.get("title"), "url": i.get("url"), "meta": meta, "metrics": i.get("metrics") or i.get("views"), "snippet": i.get("snippet"), "published_at": i.get("published")})
@@ -1342,6 +1390,7 @@ def main():
     clawhub, clawhub_err = clawhub_stats()
     hn, hn_err = hn_hits()
     reddit, reddit_err = reddit_hits()
+    spotify_community, spotify_community_err = spotify_community_threads()
     youtube, youtube_err = youtube_hits()
     youtube_sweep_note = run_youtube_recent_sweep()
     youtube_browser, youtube_browser_err = load_youtube_recent_posts()
@@ -1358,13 +1407,13 @@ def main():
     x_browser = sort_by_recency(filter_presave_titles(filter_min_media_date([i for i in x_browser if not is_removed_url(i.get("url", ""), remove_urls)], now_utc, "published_at")), now_utc, "published_at")
     if gh and gh.get("latest_open"):
         gh["latest_open"] = sort_by_recency(gh["latest_open"], now_utc, "created_at")
-    errors = [e for e in [news_err, gh_err, clawhub_err, hn_err, reddit_err, youtube_err, youtube_browser_err, youtube_metrics_err, x_search_err, x_browser_err] if e]
+    errors = [e for e in [news_err, gh_err, clawhub_err, hn_err, reddit_err, spotify_community_err, youtube_err, youtube_browser_err, youtube_metrics_err, x_search_err, x_browser_err] if e]
 
     seen_state = load_seen_state()
     seen = seen_state.setdefault("seen", {})
     normalized_date_count = normalize_seen_dates(seen, now_utc)
     pruned_count = prune_removed_seen(seen, remove_urls) + prune_old_media_seen(seen, now_utc) + prune_presave_seen(seen)
-    current_items = collect_seen_items(news, gh, hn, reddit, youtube, x_search, x_browser, now_utc, remove_urls)
+    current_items = collect_seen_items(news, gh, hn, reddit, spotify_community, youtube, x_search, x_browser, now_utc, remove_urls)
     initialized = bool(seen_state.get("initialized"))
     new_items = [i for i in current_items if initialized and i["id"] not in seen and not i.get("suppress_new")]
     for i in current_items:
@@ -1430,6 +1479,12 @@ def main():
         f'<li><strong>{esc(i["subreddit"])}</strong>: {link(i["url"], i["title"])}<small>u/{esc(i["author"])} · {esc(i["score"])} pts · {esc(i["comments"])} comments · {time_html(i.get("created_at") or i.get("created"), now_utc)}{(" · external: " + link(i["external_url"], "source")) if i.get("external_url") else ""}</small></li>'
         for i in reddit
     ) or "<li>No Reddit hits found this run.</li>"
+
+    spotify_community_html = "\n".join(
+        f'<li><strong>{esc(i.get("source") or "Spotify Community")}</strong>: {link(i["url"], i["title"])}<small>{esc(str(i.get("replies") or "?"))} replies · by {esc(i.get("author") or "?")} · {time_html(i.get("published_at"), now_utc)}</small>'
+        f'{("<small>" + esc(i.get("snippet")) + "</small>") if i.get("snippet") else ""}</li>'
+        for i in spotify_community
+    ) or "<li>No Spotify Community thread found this run.</li>"
 
     youtube_html = "\n".join(
         f'<li><strong>{esc(i.get("channel") or "YouTube")}</strong>: {link(i["url"], i["title"])}<small>{post_meta_html(i, now_utc, i.get("duration"))}</small></li>'
@@ -1529,7 +1584,7 @@ def main():
     </section>
     <section class="card">
       <h2>Current read</h2>
-      <p class="bigstat">Conversation is mostly press + Spotify/dev X + GitHub, with ClawHub install/download stats and Reddit tracked directly. Seen posts are persisted so fresh items appear first.</p>
+      <p class="bigstat">Conversation is mostly press + Spotify/dev X + GitHub, with ClawHub install/download stats, Reddit, and the Spotify Community feedback thread tracked directly. Seen posts are persisted so fresh items appear first.</p>
     </section>
     <div class="grid">
       <section class="card"><h2>Primary links</h2><ul>{primary_html}</ul></section>
@@ -1544,13 +1599,14 @@ def main():
       <section class="card social-site"><h2>X <span class="count">{len(x_items)} items</span></h2><ul>{x_html}</ul></section>
       <section class="card social-site"><h2>YouTube <span class="count">{len(youtube)} items</span></h2><ul>{youtube_html}</ul></section>
       <section class="card social-site"><h2>Reddit <span class="count">{len(reddit)} items</span></h2><ul>{reddit_html}</ul></section>
+      <section class="card social-site"><h2>Spotify Community <span class="count">{len(spotify_community)} thread</span></h2><ul>{spotify_community_html}</ul></section>
       <section class="card social-site"><h2>Hacker News <span class="count">{len(hn)} items</span></h2><ul>{hn_html}</ul></section>
       {f'<section class="card social-site"><h2>Other <span class="count">{len(other_social_items)} items</span></h2><ul>{other_html}</ul></section>' if other_html else ''}
     </section>
     <section class="card"><h2>Remove list</h2><p class="empty">{len(remove_urls)} URLs excluded from this snapshot. {pruned_count} previously tracked matches pruned this run. {normalized_date_count} stored dates normalized for chart stability.</p></section>
     {errors_html}
   </main>
-  <footer>Generated by Nyx. Sources are fetched from Google News RSS, GitHub API, ClawHub public skill page, YouTube searches, Hacker News Algolia API, tools/reddit_reader.py, logged-in X browser sweeps, plus curated social overrides.</footer>
+  <footer>Generated by Nyx. Sources are fetched from Google News RSS, GitHub API, ClawHub public skill page, Spotify Community, YouTube searches, Hacker News Algolia API, tools/reddit_reader.py, logged-in X browser sweeps, plus curated social overrides.</footer>
   <script>
     (() => {{
       const hideTooltip = (wrap) => wrap?.querySelector('.chart-tooltip')?.classList.remove('visible');
