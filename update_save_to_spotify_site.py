@@ -49,6 +49,12 @@ YOUTUBE_QUERIES = [
 ]
 CLAWHUB_URL = "https://clawhub.ai/spotify/save-to-spotify"
 SPOTIFY_COMMUNITY_URL = "https://community.spotify.com/t5/Other-Podcasts-Partners-etc/Save-to-Spotify-Feedback-amp-Issues/m-p/7446423#M132368"
+SPOTIFY_COMMUNITY_RSS_URL = "https://community.spotify.com/spotify/rss/message?board.id=002&message.id=132368"
+SPOTIFY_COMMUNITY_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 
 CURATED_SOCIAL = [
     {
@@ -443,16 +449,9 @@ def reddit_hits(limit: int = 100):
 
 
 def spotify_community_threads():
-    """Track the official Spotify Community feedback/issues thread."""
+    """Track the official Spotify Community feedback/issues thread and its replies."""
     try:
-        req = urllib.request.Request(
-            SPOTIFY_COMMUNITY_URL,
-            headers={
-                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-                "Accept-Language": "en-US,en;q=0.9",
-            },
-        )
+        req = urllib.request.Request(SPOTIFY_COMMUNITY_URL, headers=SPOTIFY_COMMUNITY_HEADERS)
         with urllib.request.urlopen(req, timeout=20) as res:
             doc = res.read().decode("utf-8", "replace")
 
@@ -474,7 +473,7 @@ def spotify_community_threads():
         desc_match = re.search(r'<meta\s+content="([^"]+)"\s+property="og:description"', doc, re.I)
         snippet = _strip_html(desc_match.group(1)) if desc_match else "Official feedback and issues thread for Save to Spotify."
 
-        return [{
+        items = [{
             "title": title,
             "url": SPOTIFY_COMMUNITY_URL,
             "source": "Spotify Community",
@@ -482,7 +481,39 @@ def spotify_community_threads():
             "replies": replies if replies is not None else "?",
             "published_at": published_at,
             "snippet": snippet,
-        }], None
+            "kind": "thread",
+        }]
+
+        rss_req = urllib.request.Request(
+            SPOTIFY_COMMUNITY_RSS_URL,
+            headers={**SPOTIFY_COMMUNITY_HEADERS, "Accept": "application/rss+xml,application/xml,text/xml,*/*"},
+        )
+        with urllib.request.urlopen(rss_req, timeout=20) as res:
+            root = ET.fromstring(res.read())
+
+        ns = {"dc": "http://purl.org/dc/elements/1.1/"}
+        seen_urls = {normalize_url(SPOTIFY_COMMUNITY_URL)}
+        for rss_item in root.findall("./channel/item"):
+            url = (rss_item.findtext("link") or "").strip()
+            if not url or normalize_url(url) in seen_urls:
+                continue
+            seen_urls.add(normalize_url(url))
+            item_title = _strip_html(rss_item.findtext("title") or title)
+            creator = _strip_html(rss_item.findtext("dc:creator", default="Spotify Community", namespaces=ns))
+            item_date = rss_item.findtext("dc:date", namespaces=ns) or rss_item.findtext("pubDate") or published_at
+            item_desc = _strip_html(rss_item.findtext("description") or "")
+            items.append({
+                "title": f"Reply: {item_title}",
+                "url": url,
+                "source": "Spotify Community Reply",
+                "author": creator,
+                "replies": None,
+                "published_at": item_date,
+                "snippet": item_desc[:320],
+                "kind": "reply",
+            })
+
+        return items, None
     except Exception as e:
         return [], f"Spotify Community fetch failed: {e!r}"
 
@@ -1108,7 +1139,11 @@ def collect_seen_items(news, gh, hn, reddit, spotify_community, youtube, x_searc
     for i in reddit:
         items.append({"source": i.get("subreddit") or "Reddit", "title": i.get("title"), "url": i.get("url"), "meta": f"u/{i.get('author')} · {i.get('score')} pts · {i.get('comments')} comments", "published_at": i.get("created_at") or i.get("created")})
     for i in spotify_community:
-        items.append({"source": i.get("source") or "Spotify Community", "title": i.get("title"), "url": i.get("url"), "meta": f"{i.get('replies')} replies · by {i.get('author')}", "snippet": i.get("snippet"), "published_at": i.get("published_at")})
+        if i.get("kind") == "reply":
+            meta = f"reply by {i.get('author')}"
+        else:
+            meta = f"{i.get('replies')} replies · by {i.get('author')}"
+        items.append({"source": i.get("source") or "Spotify Community", "title": i.get("title"), "url": i.get("url"), "meta": meta, "snippet": i.get("snippet"), "published_at": i.get("published_at")})
     for i in youtube:
         meta = " · ".join(part for part in [i.get("channel"), i.get("published"), i.get("views"), i.get("duration")] if part)
         items.append({"source": "YouTube", "title": i.get("title"), "url": i.get("url"), "meta": meta, "metrics": i.get("metrics") or i.get("views"), "snippet": i.get("snippet"), "published_at": i.get("published")})
@@ -1480,11 +1515,16 @@ def main():
         for i in reddit
     ) or "<li>No Reddit hits found this run.</li>"
 
-    spotify_community_html = "\n".join(
-        f'<li><strong>{esc(i.get("source") or "Spotify Community")}</strong>: {link(i["url"], i["title"])}<small>{esc(str(i.get("replies") or "?"))} replies · by {esc(i.get("author") or "?")} · {time_html(i.get("published_at"), now_utc)}</small>'
-        f'{("<small>" + esc(i.get("snippet")) + "</small>") if i.get("snippet") else ""}</li>'
-        for i in spotify_community
-    ) or "<li>No Spotify Community thread found this run.</li>"
+    spotify_community_rows = []
+    for i in spotify_community:
+        reply_part = f"{i.get('replies')} replies" if i.get("replies") is not None else None
+        community_meta = meta_html([reply_part, f"by {i.get('author') or '?'}", i.get("published_at")], now_utc, {2})
+        snippet_html = ("<small>" + esc(i.get("snippet")) + "</small>") if i.get("snippet") else ""
+        spotify_community_rows.append(
+            f'<li><strong>{esc(i.get("source") or "Spotify Community")}</strong>: {link(i["url"], i["title"])}<small>{community_meta}</small>{snippet_html}</li>'
+        )
+    spotify_community_html = "\n".join(spotify_community_rows) or "<li>No Spotify Community thread or replies found this run.</li>"
+    spotify_community_count_label = f"{len(spotify_community)} item{'s' if len(spotify_community) != 1 else ''}"
 
     youtube_html = "\n".join(
         f'<li><strong>{esc(i.get("channel") or "YouTube")}</strong>: {link(i["url"], i["title"])}<small>{post_meta_html(i, now_utc, i.get("duration"))}</small></li>'
@@ -1599,7 +1639,7 @@ def main():
       <section class="card social-site"><h2>X <span class="count">{len(x_items)} items</span></h2><ul>{x_html}</ul></section>
       <section class="card social-site"><h2>YouTube <span class="count">{len(youtube)} items</span></h2><ul>{youtube_html}</ul></section>
       <section class="card social-site"><h2>Reddit <span class="count">{len(reddit)} items</span></h2><ul>{reddit_html}</ul></section>
-      <section class="card social-site"><h2>Spotify Community <span class="count">{len(spotify_community)} thread</span></h2><ul>{spotify_community_html}</ul></section>
+      <section class="card social-site"><h2>Spotify Community <span class="count">{spotify_community_count_label}</span></h2><ul>{spotify_community_html}</ul></section>
       <section class="card social-site"><h2>Hacker News <span class="count">{len(hn)} items</span></h2><ul>{hn_html}</ul></section>
       {f'<section class="card social-site"><h2>Other <span class="count">{len(other_social_items)} items</span></h2><ul>{other_html}</ul></section>' if other_html else ''}
     </section>
