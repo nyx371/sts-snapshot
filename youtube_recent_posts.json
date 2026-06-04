@@ -1,6 +1,17 @@
 {
-  "generated_at": "2026-06-04T11:34:08.200Z",
+  "generated_at": "2026-06-04T12:03:57.736Z",
   "search_url": "https://www.youtube.com/results?search_query=%22save+to+spotify%22",
   "filter": "Recently uploaded",
-  "posts": []
+  "posts": [
+    {
+      "title": "Spotify Pre Save tip",
+      "url": "https://www.youtube.com/watch?v=roLeJ5w87F0",
+      "channel": "Bryan Boliver",
+      "views": "7K view",
+      "published": "6 year  ago",
+      "duration": "5:02\n    5:02",
+      "snippet": "",
+      "query": "browser: \"save to spotify\" recently uploaded"
+    }
+  ]
 }
