@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STS Snapshot · last30days preview</title>
+<style>
+:root { color-scheme: dark; --bg:#0b1020; --card:#11182d; --card2:#162039; --text:#eef3ff; --muted:#9baad0; --line:#263452; --accent:#7dd3fc; --ok:#86efac; --warn:#fde68a; --bad:#fca5a5; }
+* { box-sizing:border-box; } body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:linear-gradient(180deg,#08101f,#0b1020 32rem); color:var(--text); }
+main { max-width:1100px; margin:0 auto; padding:32px 18px 56px; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+.hero { border:1px solid var(--line); background:rgba(17,24,45,.88); border-radius:22px; padding:24px; box-shadow:0 20px 50px rgba(0,0,0,.25); }
+h1 { margin:0 0 8px; font-size:clamp(28px,5vw,46px); letter-spacing:-.04em; }
+.lede { max-width:760px; color:var(--muted); font-size:17px; line-height:1.55; }
+.grid { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); margin:20px 0 0; }
+.stat { background:var(--card2); border:1px solid var(--line); border-radius:16px; padding:14px; }
+.stat span { display:block; color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.08em; }
+.stat strong { display:block; font-size:24px; margin-top:5px; }
+section { margin-top:18px; border:1px solid var(--line); background:rgba(17,24,45,.86); border-radius:18px; padding:18px; }
+h2 { margin:0 0 12px; font-size:20px; }
+ul { margin:0; padding-left:20px; } li { margin:10px 0; } small { display:block; color:var(--muted); margin-top:4px; }
+.result { border:1px solid var(--line); background:rgba(22,32,57,.72); border-radius:14px; padding:14px; margin:10px 0; }
+.result-top { display:flex; gap:10px; justify-content:space-between; align-items:baseline; flex-wrap:wrap; }
+.result-top span { color:var(--muted); font-size:13px; }
+.result p, li p { color:#cbd6f2; line-height:1.5; margin:.55rem 0 0; }
+.empty { color:var(--muted); }
+.notice { border-color:#5b4c1b; background:rgba(91,76,27,.18); }
+pre { overflow:auto; white-space:pre-wrap; background:#070b15; border:1px solid var(--line); border-radius:14px; padding:14px; color:#cbd6f2; max-height:360px; }
+code { background:#070b15; border:1px solid rgba(255,255,255,.08); border-radius:6px; padding:1px 5px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="hero">
+    <h1>last30days supplement preview</h1>
+    <p class="lede">Standalone test page for extending STS Snapshot with <code>last30days-official</code>. This page is intentionally separate from the live snapshot index so we can evaluate signal quality before integrating anything.</p>
+    <div class="grid">
+      <div class="stat"><span>Topic</span><strong>Save to Spotify</strong></div>
+      <div class="stat"><span>Generated</span><strong>2026-06-08T15:24</strong></div>
+      <div class="stat"><span>Candidates</span><strong>1</strong></div>
+      <div class="stat"><span>Clusters</span><strong>1</strong></div>
+      <div class="stat"><span>Raw items</span><strong>1</strong></div>
+    </div>
+  </div>
+
+  <section class="notice">
+    <h2>Run verdict</h2>
+    <p class="lede">This first run is useful as a pipeline test, but the content signal is thin: GitHub returned one item, Hacker News returned none, and Reddit public search was blocked with a 403. That means <code>last30days</code> is not ready to replace the current STS Snapshot collectors, but it can still be tested as a supplemental section.</p>
+  </section>
+
+  <section>
+    <h2>Source coverage</h2>
+    <ul>
+      <li><strong>github</strong>: 1 item(s)</li><li><strong>hackernews</strong>: 0 item(s)</li><li><strong>reddit</strong>: 0 item(s)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Ranked candidates</h2>
+    <article class="result">
+  <div class="result-top"><strong><a href="https://github.com/spotify/save-to-spotify" target="_blank" rel="noopener noreferrer">spotify/save-to-spotify (363 stars) - 7 open issues</a></strong><span>github · score 58.05</span></div>
+  <p>Project: spotify/save-to-spotify (363 stars, 7 open issues, Go)
+  Command line interface to save your personal media to Spotify.
+  README: # Save to Spotify
+
+A command-line tool for saving audio content to Spotify. Built for agents and automation, generate a daily briefing, language lesson, or meeting recap, then push it to Spotify where it&#x27;s available alongside your other listening.
+
+## Quick Sta</p>
+</article>
+  </section>
+
+  <section>
+    <h2>Clusters</h2>
+    <article class="result">
+  <div class="result-top"><strong>spotify/save-to-spotify (363 stars) - 7 open issues</strong><span>github · score 58.05</span></div>
+  <p>1 candidate(s), uncertainty: none</p>
+</article>
+  </section>
+
+  <section>
+    <h2>Raw source items</h2>
+    <ul><li>
+      <strong>github</strong>: <a href="https://github.com/spotify/save-to-spotify" target="_blank" rel="noopener noreferrer">spotify/save-to-spotify (363 stars) - 7 open issues</a>
+      <small>by spotify · 2026-05-25 · comments: 7 · reactions: 363</small>
+      <p>Project: spotify/save-to-spotify (363 stars, 7 open issues, Go)
+  Command line interface to save your personal media to Spotify.
+  README: # Save to Spotify
+
+A command-line tool for saving audio content to Spotify. Built for agents and automation, generate a daily briefing, language lesson, or meeting recap, then push it to Spotify where it&#x27;s available alongside your other listening.
+
+## Quick Sta</p>
+    </li></ul>
+  </section>
+
+  <section>
+    <h2>Query plan</h2>
+    <ul><li><strong>save-to-spotify exact mentions</strong>: <code>&quot;Save to Spotify&quot; OR &quot;save-to-spotify&quot;</code><small>sources: hackernews, reddit</small></li></ul>
+  </section>
+
+  <section>
+    <h2>Warnings and errors</h2>
+    <ul>
+      <li>No structured errors reported.</li>
+      <li>Evidence is thin for this topic.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Run log</h2>
+    <pre>/last30days · researching: Save to Spotify
+⏳ [95mProcessing[0m Scoring and ranking...
+[Planner] Plan: intent=concept, freshness=last_30_days, cluster_mode=none, subqueries=1, source=external
+[Planner]   sq1 label=save-to-spotify exact mentions search=&quot;&quot;Save to Spotify&quot; OR &quot;save-to-spotify&quot;&quot; sources=[hackernews,reddit]
+[GitHub] Project-mode search for 1 repos: spotify/save-to-spotify
+[GitHub] Project-mode returned 1 items
+[RedditPublic] 403 forbidden: https://www.reddit.com/search.json?q=Save+to+Spotify&amp;sort=relevance&amp;t=month&amp;limit=10&amp;raw_json=1
+✓ Research complete (3.3s) - Reddit: 0 threads, HN: 0 stories, Github: 1 result
+
+💡 Unlock X: log into x.com in Firefox or Safari, then re-run. Or add AUTH_TOKEN/CT0 or XAI_API_KEY.
+
+Research quality: 3/5 core sources.
+Missing: X/Twitter, YouTube.
+
+Free fixes:
+  - X/Twitter: real-time posts with likes and reposts - the fastest signal for breaking topics. Two options: log into x.com in your browser and re-run (cookies detected automatically), or add XAI_API_KEY to your .env (no browser access, get key at api.x.ai).
+  - YouTube: video transcripts with key moments - often the deepest explanations on any topic. Install yt-dlp: brew install yt-dlp (free)
+
+Bonus: TikTok and Instagram are available with a free ScrapeCreators key at scrapecreators.com (no affiliation).
+</pre>
+  </section>
+</main>
+</body>
+</html>
