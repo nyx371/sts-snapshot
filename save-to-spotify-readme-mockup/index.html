@@ -31,13 +31,13 @@
 
     <article class="markdown-body">
       <h1 align="center">Save to Spotify</h1>
-      <p align="center"><strong>The official Spotify skill for saving agent-made audio to Spotify.</strong></p>
-      <p align="center">Ask your agent for audio. Get a Spotify episode with metadata, cover art, chapters, timeline images, links, and Spotify cards.</p>
+      <p align="center"><strong>The official Spotify skill for turning agent-made audio into Spotify episodes.</strong></p>
+      <p align="center">Give your agent a listening job. It asks only what matters, prepares the episode, previews the plan, and saves it to Spotify.</p>
       <p align="center">
         <a href="https://officialskills.sh/spotify/save-to-spotify"><strong>OfficialSkills</strong></a> ·
         <a href="https://clawhub.ai/spotify/save-to-spotify"><strong>ClawHub</strong></a> ·
         <a href="#install"><strong>Install</strong></a> ·
-        <a href="#quick-start"><strong>Quick start</strong></a>
+        <a href="#capabilities"><strong>Capabilities</strong></a>
       </p>
       <p align="center">
         <img alt="Official Spotify Skill" src="https://img.shields.io/badge/Official-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white" />
@@ -47,14 +47,16 @@
       <h2 id="install">Install</h2>
       <p>Prompt your agent to install:</p>
       <pre><code>&gt; Install Save to Spotify by running https://saveto.spotify.com/install.sh</code></pre>
+      <p>That is the happy path. Your agent can install the tool, check setup, and guide you through Spotify login.</p>
 
-      <p>Or run it yourself:</p>
-      <pre><code>curl -fsSL https://saveto.spotify.com/install.sh | bash
+      <details><summary>Prefer installing manually?</summary>
+        <pre><code>curl -fsSL https://saveto.spotify.com/install.sh | bash
 save-to-spotify auth login
 save-to-spotify doctor</code></pre>
+      </details>
 
-      <h2 id="quick-start">Quick start</h2>
-      <p>Give your agent a source and a destination:</p>
+      <h2>Quick start</h2>
+      <p>Tell your agent what you want to listen to:</p>
       <pre><code>Turn [placeholder source] into a [placeholder length] Spotify episode.
 Use [placeholder tone].
 Save it to [placeholder show].
@@ -63,52 +65,54 @@ Preview before uploading.</code></pre>
 
       <p align="center"><img class="hero-img" src="assets/workflow-gallery.svg" alt="Placeholder workflow gallery" /></p>
 
-      <h2>What you get</h2>
+      <h2 id="capabilities">Capabilities</h2>
+      <p>Save to Spotify helps your agent:</p>
       <ul>
-        <li>Spotify episode upload</li>
-        <li>show and episode metadata</li>
-        <li>cover image</li>
-        <li>chapters</li>
-        <li>timeline images</li>
-        <li>source links</li>
-        <li>Spotify entity cards</li>
-        <li>readiness checks</li>
+        <li>understand the listening goal</li>
+        <li>ask only the choices that change the result</li>
+        <li>accept existing audio or produce new audio</li>
+        <li>create show and episode metadata</li>
+        <li>attach cover art</li>
+        <li>add chapters, timeline images, source links, and Spotify cards</li>
+        <li>preview before upload</li>
+        <li>save to Spotify</li>
+        <li>check that the episode is ready</li>
       </ul>
 
       <p align="center"><img class="episode-img" src="assets/episode-card-placeholder.svg" alt="Placeholder Spotify episode preview" /></p>
 
-      <h2>Useful commands</h2>
-      <pre><code>save-to-spotify auth status
-save-to-spotify doctor
-save-to-spotify upload ./episode.mp3 --title "[placeholder title]"
-save-to-spotify --json timeline validate --from-file timeline.json</code></pre>
-
-      <h2>Safety</h2>
-      <p>Save to Spotify should be easy to trust:</p>
+      <h2>Safety and consent</h2>
+      <p>The skill should make Spotify actions easy to approve:</p>
       <ul>
-        <li>preview before upload or write actions</li>
         <li>show the active Spotify account</li>
         <li>explain requested OAuth scopes</li>
-        <li>separate read-only checks from changes</li>
+        <li>separate read-only checks from write actions</li>
+        <li>preview before creating or changing anything</li>
         <li>validate the result after upload</li>
       </ul>
 
       <p align="center"><img class="hero-img" src="assets/oauth-scope-preview.svg" alt="Placeholder OAuth and consent preview" /></p>
 
       <h2>For agent builders</h2>
-      <p>Keep the skill simple and helpful:</p>
+      <p>Keep the experience friendly:</p>
       <ul>
-        <li>start from user intent, not CLI flags</li>
-        <li>ask only what changes the result</li>
+        <li>lead with user intent, not CLI flags</li>
         <li>use sensible defaults</li>
+        <li>ask fewer, better questions</li>
         <li>preview before mutation</li>
-        <li>return links and validation status</li>
+        <li>return links and readiness status</li>
         <li>recover clearly from auth, rate limits, or partial failures</li>
       </ul>
 
-      <h2>Other install paths</h2>
-      <pre><code>openclaw skills install @spotify/save-to-spotify
+      <details><summary>CLI reference for agents</summary>
+        <pre><code>save-to-spotify auth status
+save-to-spotify doctor
+save-to-spotify upload ./episode.mp3 --title "[placeholder title]"
+save-to-spotify --json timeline validate --from-file timeline.json</code></pre>
+        <p>Other install paths:</p>
+        <pre><code>openclaw skills install @spotify/save-to-spotify
 npx skills add spotify/save-to-spotify</code></pre>
+      </details>
 
       <h2>Placeholder assets</h2>
       <p>Replace these before launch:</p>
