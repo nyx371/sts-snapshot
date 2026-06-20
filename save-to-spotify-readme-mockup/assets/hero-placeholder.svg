@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-label="Save to Spotify hero placeholder">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#1DB954"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs>
+  <rect width="1200" height="420" rx="28" fill="#0d1117"/>
+  <circle cx="220" cy="210" r="104" fill="#1DB954" opacity=".95"/>
+  <text x="220" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="84" font-weight="700" fill="#07130b">♫</text>
+  <path d="M390 210h180" stroke="#8b949e" stroke-width="8" stroke-linecap="round"/>
+  <path d="M545 177l45 33-45 33" fill="none" stroke="#8b949e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="640" y="112" width="360" height="196" rx="24" fill="url(#g)" opacity=".9"/>
+  <text x="820" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="white">Spotify episode</text>
+  <text x="820" y="242" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="white">chapters · images · links · cards</text>
+  <text x="600" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#c9d1d9">Agent work → polished listening</text>
+</svg>

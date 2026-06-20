@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" role="img" aria-label="Spotify episode card placeholder">
+  <rect width="900" height="360" rx="20" fill="#161b22" stroke="#30363d"/>
+  <rect x="36" y="36" width="220" height="220" rx="18" fill="#1DB954"/>
+  <text x="146" y="164" text-anchor="middle" font-family="Arial" font-size="54" font-weight="700" fill="#07130b">S2S</text>
+  <text x="300" y="82" font-family="Arial" font-size="22" fill="#8b949e">Spotify episode preview</text>
+  <text x="300" y="128" font-family="Arial" font-size="34" font-weight="700" fill="#e6edf3">Launch Briefing - Save to Spotify</text>
+  <text x="300" y="172" font-family="Arial" font-size="22" fill="#c9d1d9">6 min · chapters · timeline cards · source links</text>
+  <rect x="300" y="226" width="190" height="12" rx="6" fill="#1DB954"/>
+  <rect x="500" y="226" width="110" height="12" rx="6" fill="#7c3aed"/>
+  <rect x="620" y="226" width="145" height="12" rx="6" fill="#22d3ee"/>
+  <rect x="775" y="226" width="70" height="12" rx="6" fill="#f59e0b"/>
+  <text x="300" y="286" font-family="Arial" font-size="18" fill="#8b949e">Chapter</text>
+  <text x="500" y="286" font-family="Arial" font-size="18" fill="#8b949e">Image</text>
+  <text x="620" y="286" font-family="Arial" font-size="18" fill="#8b949e">Link</text>
+  <text x="775" y="286" font-family="Arial" font-size="18" fill="#8b949e">Card</text>
+</svg>
