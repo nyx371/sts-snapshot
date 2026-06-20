@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Media Generation Skills Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="moon">◐</div><div><h1>Media Skills Explorer</h1><p>Research + Save to Spotify changes</p></div></div>
+      <nav id="nav"></nav>
+      <div class="side-note"><strong>Use:</strong> click nodes, filter skills, search research, and copy prompts/roadmap items.</div>
+    </aside>
+    <main>
+      <section id="hero" class="panel hero">
+        <div><p class="eyebrow">Nyx research workspace</p><h2>Explore the media-generation agent skill domain</h2><p class="lede">A browseable map of generation skills, onboarding patterns, distribution strategy, and concrete Save to Spotify CLI/skill improvements.</p>
+        <div class="hero-actions"><button data-jump="map">Open domain map</button><button data-jump="spotify">Review Spotify changes</button><button data-jump="research">Read full notes</button></div></div>
+        <div class="stats"><div><b>7</b><span>media domains</span></div><div><b>20+</b><span>skills reviewed</span></div><div><b>2</b><span>CLI improvements added</span></div><div><b>1</b><span>static iCloud site</span></div></div>
+      </section>
+      <section id="map" class="panel"><div class="section-head"><p class="eyebrow">Domain space</p><h2>Interactive map</h2><p>Click a node to inspect its skills, questions, and opportunity profile.</p></div><div class="map-layout"><svg id="domainMap" viewBox="0 0 900 520" role="img" aria-label="Media generation domain map"></svg><div id="domainDetail" class="detail-card"></div></div></section>
+      <section id="skills" class="panel"><div class="section-head"><p class="eyebrow">Skill gallery</p><h2>Generation skills reviewed</h2><div class="controls"><input id="search" placeholder="Search skills, URLs, notes…" /><select id="domainFilter"><option value="all">All domains</option></select></div></div><div id="skillGrid" class="grid"></div></section>
+      <section id="onboarding" class="panel"><div class="section-head"><p class="eyebrow">First-use UX</p><h2>Question flow that doesn’t interrogate users</h2><p>The key pattern: classify intent, use presets, ask 2–3 high-impact questions, preview before costly generation.</p></div><div id="onboardingFlow" class="flow"></div><div class="prompt-box"><h3>Universal starter</h3><p>I can use a sensible preset and only ask what’s missing. Tell me: <strong>what we’re making</strong>, <strong>source material</strong>, and <strong>target output</strong>. I’ll propose defaults before expensive generation.</p></div></section>
+      <section id="distribution" class="panel"><div class="section-head"><p class="eyebrow">Distribution</p><h2>How to get people to try skills</h2><p>Lead with artifacts, not infrastructure. Then make install/run trivial.</p></div><div id="distributionGrid" class="cards"></div></section>
+      <section id="spotify" class="panel"><div class="section-head"><p class="eyebrow">Case study</p><h2>Save to Spotify CLI + skill</h2><p>Already a strong distribution reference. Main gap: first-run conversion and agent-safe preflight/validation.</p></div><div class="spotify-columns"><div><h3>Strengths</h3><ul id="spotifyStrengths"></ul></div><div><h3>Implemented now</h3><ul id="spotifyImplemented"></ul></div><div><h3>Next roadmap</h3><ul id="spotifyRoadmap"></ul></div></div><details class="code"><summary>Patch stats</summary><pre id="patchStats"></pre></details></section>
+      <section id="changes" class="panel"><div class="section-head"><p class="eyebrow">Proposed / patched changes</p><h2>Implementation detail</h2><p>Includes the new doctor command source and key diff excerpt for the cloned repo.</p></div><div class="tabs"><button class="tab active" data-tab="doctor">doctor.go</button><button class="tab" data-tab="diff">Diff excerpt</button></div><pre id="codePane" class="code-pane"></pre></section>
+      <section id="research" class="panel"><div class="section-head"><p class="eyebrow">Full research</p><h2>Source notes</h2><p>Searchable raw research markdown from the workspace.</p></div><input id="researchSearch" placeholder="Filter research notes…" /><pre id="researchText" class="research"></pre></section>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
