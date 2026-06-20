@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/hero-placeholder.png" alt="Save to Spotify hero placeholder: an agent turns articles, notes, meetings, and lessons into polished Spotify episodes" width="100%" />
+  <img src="./assets/hero-placeholder.svg" alt="Save to Spotify hero placeholder: an agent turns articles, notes, meetings, and lessons into polished Spotify episodes" width="100%" />
 </p>
 
 <h1 align="center">Save to Spotify</h1>
@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  Create polished audio episodes from meetings, articles, research, study notes, briefings, and voice memos - then save them to Spotify with cover art, chapters, timeline images, links, and Spotify-native entity cards.
+  Create polished audio episodes from [placeholder source material] - then save them to Spotify with cover art, chapters, timeline images, links, and Spotify-native entity cards.
 </p>
 
 <p align="center">
@@ -36,13 +36,13 @@ AI agents are great at summarizing, researching, scripting, and producing. But m
 
 Use it when you want to:
 
-- turn a meeting recap into a private listening episode
-- convert articles or research into a concise audio briefing
-- create language-learning drills you can replay on a walk
-- package release notes, incident reviews, or onboarding docs as audio
-- generate rich Spotify episodes with chapters, cover art, source links, timeline images, and Spotify cards
+- turn [placeholder source] into a saved Spotify episode
+- convert [placeholder source material] into polished audio output
+- create [placeholder repeatable listening workflow]
+- package [placeholder internal notes/updates/docs] as audio
+- generate rich Spotify episodes with chapters, cover art, source/reference links, timeline images, and Spotify cards
 
-> Placeholder artifact: `demo-agent-to-episode.gif` - 30 seconds showing a user asking an agent to turn research links into a Spotify episode.
+> Placeholder artifact: `demo-agent-to-episode.gif` - 30 seconds showing an agent turning [placeholder source material] into a Spotify episode.
 
 ---
 
@@ -50,13 +50,13 @@ Use it when you want to:
 
 | From | To |
 | --- | --- |
-| Meeting transcript | 8-minute recap episode with decisions, owners, and follow-ups |
-| Research links | Briefing with chapters, source links, and timeline images |
-| Vocabulary list | Spaced-repeat language lesson with pauses and review prompts |
-| Product notes | Shareable audio update with cover art and show notes |
+| Placeholder source A | Placeholder Spotify output A |
+| Placeholder source B | Placeholder Spotify output B |
+| Placeholder source C | Placeholder Spotify output C |
+| Placeholder source D | Placeholder Spotify output D |
 
 <p align="center">
-  <img src="./assets/episode-card-placeholder.png" alt="Placeholder Spotify episode card with cover, title, chapters, and timeline companions" width="78%" />
+  <img src="./assets/episode-card-placeholder.svg" alt="Placeholder Spotify episode card with cover, title, chapters, and timeline companions" width="78%" />
 </p>
 
 ```text
@@ -65,7 +65,7 @@ You: Turn these launch notes into a 6-minute Spotify episode.
 Agent: I’ll produce:
 - title: Launch Briefing - Save to Spotify
 - format: 6-minute narrated episode
-- timeline: chapters + source links + Spotify entity cards
+- timeline: chapters + source/reference links + Spotify entity cards
 - destination: Product Updates show
 
 Say “go” and I’ll generate a preview before saving.
@@ -137,7 +137,7 @@ Save to Spotify can save raw audio, but it shines when agents produce **rich lis
 
 - chapters
 - in-player images
-- source links
+- source/reference links
 - Spotify entity cards for tracks, albums, artists, shows, episodes, playlists, or audiobooks
 - timestamped HTML show notes
 
@@ -188,26 +188,27 @@ save-to-spotify --json timeline validate --from-file timeline.json
 
 ## Example workflows
 
-### Turn a meeting into a commute-ready recap
+### Placeholder workflow 1
 
 ```text
-Save this transcript to Spotify as a concise 7-minute recap.
-Highlight decisions, owners, and open questions.
-Put it in my “Work Recaps” show.
+Turn [placeholder source] into a [placeholder duration] Spotify episode.
+Use [placeholder style/tone].
+Save it to [placeholder show name].
 ```
 
-### Turn research into an audio briefing
+### Placeholder workflow 2
 
 ```text
-Make a 10-minute briefing from these links.
-Use a calm editorial voice, include source links in the timeline, and create a cover image.
+Turn [placeholder links/files] into a [placeholder format].
+Include [placeholder timeline assets].
+Use [placeholder cover style].
 ```
 
-### Turn study notes into a language lesson
+### Placeholder workflow 3
 
 ```text
-Create a Swedish practice episode from this vocabulary list.
-Use call-and-response pacing with pauses after each prompt.
+Create a [placeholder learning/listening episode] from [placeholder notes].
+Use [placeholder pacing/instructions].
 ```
 
 ### Save existing audio
@@ -255,12 +256,12 @@ save-to-spotify timeline set --episode-id spotify:episode:... --from-file timeli
 
 Use these while preparing the final repo:
 
-- `assets/hero-placeholder.png` - hero showing “agent work → Spotify episode”
+- `assets/hero-placeholder.svg` - hero showing “agent work → Spotify episode”
 - `assets/demo-agent-to-episode.gif` - install + prompt + preview + Spotify result
-- `assets/episode-card-placeholder.png` - final Spotify episode card
-- `assets/timeline-preview.png` - chapters/images/links/entity cards strip
-- `assets/oauth-scope-preview.png` - readable permission/consent explanation
-- `assets/workflow-gallery.png` - meeting recap, research briefing, language lesson, raw upload
+- `assets/episode-card-placeholder.svg` - final Spotify episode card
+- `assets/timeline-preview.svg` - chapters/images/links/entity cards strip
+- `assets/oauth-scope-preview.svg` - readable permission/consent explanation
+- `assets/workflow-gallery.svg` - placeholder workflow, placeholder workflow, placeholder workflow, placeholder workflow
 
 ---
 
