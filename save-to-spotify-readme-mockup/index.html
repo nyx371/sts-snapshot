@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Save to Spotify README Mockup</title>
+  <link rel="stylesheet" href="style.css?v=1" />
+</head>
+<body>
+  <div class="topbar"><a href="../skill-publishing-reach/?v=3">← Publishing strategy</a><a href="README.md">Raw README.md</a></div>
+  <main class="markdown-body">
+    <section class="hero-art"><div class="orb">♫</div><div><p>Official Spotify Agent Skill</p><h1>Save to Spotify</h1><span>Agent work → polished Spotify listening</span></div></section>
+    <h1 align="center">Save to Spotify</h1>
+    <p align="center"><strong>The official Spotify skill for turning agent work into something you can listen to anywhere.</strong></p>
+    <p align="center">Create polished audio episodes from meetings, articles, research, study notes, briefings, and voice memos - then save them to Spotify with cover art, chapters, timeline images, links, and Spotify-native entity cards.</p>
+    <p align="center" class="links"><a>OfficialSkills</a> · <a>ClawHub</a> · <a>Install</a> · <a>Demo</a> · <a>Safety</a></p>
+    <p align="center"><span class="badge green">Official Spotify Skill</span> <span class="badge purple">Agent Skill</span> <span class="badge cyan">OpenClaw ready</span></p>
+    <hr />
+    <h2>Why this exists</h2>
+    <p>AI agents are great at summarizing, researching, scripting, and producing. But most useful work still lands in chat windows, Markdown files, or folders you forget to reopen.</p>
+    <p><strong>Save to Spotify turns that work into durable listening.</strong></p>
+    <ul><li>turn a meeting recap into a private listening episode</li><li>convert articles or research into a concise audio briefing</li><li>create language-learning drills you can replay on a walk</li><li>package release notes, incident reviews, or onboarding docs as audio</li><li>generate rich Spotify episodes with chapters, cover art, source links, timeline images, and Spotify cards</li></ul>
+    <div class="placeholder">Placeholder: demo-agent-to-episode.gif</div>
+    <h2>See it in action</h2>
+    <div class="grid"><article><b>Meeting transcript</b><span>8-minute recap with decisions, owners, follow-ups</span></article><article><b>Research links</b><span>Briefing with chapters, source links, timeline images</span></article><article><b>Vocabulary list</b><span>Spaced-repeat lesson with pauses and review prompts</span></article><article><b>Product notes</b><span>Audio update with cover art and show notes</span></article></div>
+    <section class="episode-card"><div class="cover">S2S</div><div><p class="muted">Spotify episode preview</p><h3>Launch Briefing - Save to Spotify</h3><p>6 min · chapters · timeline cards · source links</p><div class="timeline"><span></span><span></span><span></span><span></span></div></div></section>
+    <pre><code>You: Turn these launch notes into a 6-minute Spotify episode.
+
+Agent: I’ll produce:
+- title: Launch Briefing - Save to Spotify
+- format: 6-minute narrated episode
+- timeline: chapters + source links + Spotify entity cards
+- destination: Product Updates show
+
+Say “go” and I’ll generate a preview before saving.</code></pre>
+    <h2>Install</h2>
+    <h3>OpenClaw / ClawHub</h3><pre><code>openclaw skills install @spotify/save-to-spotify</code></pre>
+    <h3>Universal installer</h3><pre><code>curl -fsSL https://saveto.spotify.com/install.sh | bash</code></pre>
+    <h3>Skills.sh</h3><pre><code>npx skills add spotify/save-to-spotify</code></pre>
+    <h2>First run: guided, not overwhelming</h2>
+    <p>The skill is designed around <strong>intent-first onboarding</strong>. You should not need to understand Spotify APIs, episode metadata, audio formats, or timeline schemas to get a good result.</p>
+    <ol><li><strong>What are we making?</strong> A briefing, recap, lesson, show episode, or raw media upload.</li><li><strong>What source material should it use?</strong> Files, URLs, notes, transcript, or existing audio.</li><li><strong>Where should it go?</strong> Existing show or new show.</li><li><strong>Before any write action:</strong> preview the plan and ask for confirmation.</li></ol>
+    <h2>What Save to Spotify produces</h2>
+    <div class="grid"><article><b>Episode package</b><span>media upload, metadata, cover image, show selection, validation</span></article><article><b>Rich timeline</b><span>chapters, images, source links, Spotify entity cards, show notes</span></article></div>
+    <pre><code>{
+  "items": [
+    { "type": "chapter", "start_ms": 0, "title": "What changed" },
+    { "type": "image", "start_ms": 12000, "file": "launch-map.jpg" },
+    { "type": "link", "start_ms": 26000, "url": "https://example.com/source" },
+    { "type": "spotify_entity", "start_ms": 42000, "uri": "spotify:playlist:..." }
+  ]
+}</code></pre>
+    <h2>Safety and consent</h2>
+    <p>This is an official Spotify skill, so trust is part of the product. Read actions are lightweight. Write actions require clarity.</p>
+    <ul><li>creates or edits shows</li><li>uploads episodes</li><li>changes timeline metadata</li><li>changes library or playlist state</li><li>publishes, shares, or modifies anything externally</li></ul>
+    <h2>Example workflows</h2>
+    <div class="prompts"><p>Save this transcript to Spotify as a concise 7-minute recap. Highlight decisions, owners, and open questions.</p><p>Make a 10-minute briefing from these links. Use a calm editorial voice, include source links in the timeline, and create a cover image.</p><p>Create a Swedish practice episode from this vocabulary list. Use call-and-response pacing with pauses after each prompt.</p></div>
+    <h2>For agent builders</h2>
+    <ul><li><strong>Intent over commands</strong> - route by what the user wants, not by API surface.</li><li><strong>Progressive disclosure</strong> - simple path first, advanced controls only when needed.</li><li><strong>Consent before mutation</strong> - preview before writing to Spotify.</li><li><strong>Observable outputs</strong> - return links, validation results, and readiness state.</li><li><strong>Composable workflows</strong> - new Spotify surfaces can plug into the same onboarding model.</li></ul>
+    <h2>Placeholder launch assets</h2>
+    <ul><li><code>assets/hero-placeholder.png</code></li><li><code>assets/demo-agent-to-episode.gif</code></li><li><code>assets/episode-card-placeholder.png</code></li><li><code>assets/timeline-preview.png</code></li><li><code>assets/oauth-scope-preview.png</code></li><li><code>assets/workflow-gallery.png</code></li></ul>
+  </main>
+</body>
+</html>
