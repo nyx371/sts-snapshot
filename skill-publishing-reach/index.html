@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Where to Publish Agent Skills for Awareness and Reach</title>
+  <meta name="description" content="A practical publishing map for AgentSkills: registries, GitHub, awesome lists, social/community launches, and a 30-day reach plan." />
+  <link rel="stylesheet" href="style.css?v=1" />
+</head>
+<body>
+  <header class="hero">
+    <nav><a href="../media-generation-skills-explorer/?v=3">← Media Skills Explorer</a><a href="#plan">Launch plan</a><a href="#sources">Sources</a></nav>
+    <p class="eyebrow">Nyx research brief · June 2026</p>
+    <h1>Where to publish agent skills for awareness and reach</h1>
+    <p class="lede">Treat skill publishing as two jobs: make it installable in the places agents search, then give builders a reason to try it with demos, proof, and community-native posts.</p>
+    <div class="hero-grid">
+      <div><b>1</b><span>Canonical home</span><p>GitHub repo with clean README, examples, license, tags, screenshots, install commands.</p></div>
+      <div><b>2</b><span>Registry discovery</span><p>ClawHub first for OpenClaw users, plus Git install compatibility for other agents.</p></div>
+      <div><b>3</b><span>Community reach</span><p>HN, Reddit, Discord, X, LinkedIn, Product Hunt, newsletters, and awesome lists.</p></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel verdict">
+      <p class="eyebrow">Recommendation</p>
+      <h2>Best path: GitHub + ClawHub + proof-led launch loop</h2>
+      <p>Do not start with “here is a skill.” Start with a concrete artifact the skill produces, then link to a one-command install. For OpenClaw skills, publish to <a href="https://clawhub.ai/">ClawHub</a> and keep GitHub as the canonical, source-controlled project. Then distribute the artifact in communities that already care about agent workflows.</p>
+      <div class="priority-list">
+        <article><span>01</span><h3>Foundation</h3><p>GitHub repo, ClawHub listing, verified install, 90-second demo, short “why this exists.”</p></article>
+        <article><span>02</span><h3>Discovery</h3><p>Awesome lists, ClawHub search tags, GitHub topics, README SEO, docs links.</p></article>
+        <article><span>03</span><h3>Launch</h3><p>Show HN, Product Hunt if packaged as a product, Reddit/Discord community posts, X/LinkedIn thread.</p></article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="eyebrow">Channel map</p>
+      <h2>Where each channel fits</h2>
+      <div class="cards">
+        <article class="card high"><h3>ClawHub</h3><p class="tag">Highest intent · OpenClaw users</p><p>Primary registry for OpenClaw skill discovery and install. The site advertises skill/plugin discovery and the CLI supports publishing via <code>clawhub skill publish ./my-skill --slug my-skill --version 1.0.0</code>.</p><ul><li>Best for: install conversion</li><li>Need: strong description, tags, version, trust envelope</li><li>CTA: <code>openclaw skills install &lt;slug&gt;</code></li></ul></article>
+        <article class="card high"><h3>GitHub repo</h3><p class="tag">Canonical source · SEO · trust</p><p>Make every skill a clean repo or folder with <code>SKILL.md</code>, examples, changelog, screenshots, short video/GIF, and GitHub topics like <code>agent-skills</code>, <code>openclaw</code>, <code>claude-code</code>, <code>codex</code>.</p><ul><li>Best for: credibility and reuse</li><li>Need: README that sells outcome first</li><li>CTA: Git install plus ClawHub install</li></ul></article>
+        <article class="card"><h3>Awesome lists</h3><p class="tag">Evergreen discovery</p><p>Submit PRs to agent-skills / MCP / Claude Code lists. Search results show multiple active “awesome agent skills” directories, including cross-platform lists.</p><ul><li>Best for: long-tail discovery</li><li>Need: concise one-line value prop</li><li>CTA: demo + repo link</li></ul></article>
+        <article class="card"><h3>Hacker News</h3><p class="tag">Spike potential · builders</p><p>Use Show HN only when there is a working demo and a technical angle. Lead with what it automates or produces, not the meta of “a skill.” Answer comments fast.</p><ul><li>Best for: dev-tool awareness</li><li>Need: non-marketing title, live demo, repo</li><li>CTA: “try it in 60 seconds”</li></ul></article>
+        <article class="card"><h3>Product Hunt</h3><p class="tag">Productized bundles</p><p>Use for packaged skill collections, hosted demos, or workflows that feel like a product. Product Hunt has AI agents and AI coding agents categories, but raw single skills may feel too small unless bundled.</p><ul><li>Best for: polished launch</li><li>Need: visuals, maker comment, supporters</li><li>CTA: demo gallery + install</li></ul></article>
+        <article class="card"><h3>Reddit</h3><p class="tag">Targeted conversations</p><p>Post in relevant communities only when there is practical value: r/ClaudeAI, r/ClaudeCode, r/LocalLLaMA, r/AI_Agents, r/OpenAI, r/CursorAI, and niche subreddits for the skill domain.</p><ul><li>Best for: feedback and use cases</li><li>Need: “I built X to solve Y” post</li><li>CTA: ask for testers, not upvotes</li></ul></article>
+        <article class="card"><h3>Discord / Slack communities</h3><p class="tag">Warm adoption</p><p>Share in OpenClaw, Claude Code, Cursor, AI builder, and domain-specific servers. Best when posted as a short demo and a “happy to adapt it” offer.</p><ul><li>Best for: early users</li><li>Need: permission-aware sharing</li><li>CTA: install + feedback thread</li></ul></article>
+        <article class="card"><h3>X / LinkedIn / Bluesky</h3><p class="tag">Narrative reach</p><p>Post short artifact-first threads: problem, demo, why agent skills beat prompts, install link, next roadmap. Tag related builders sparingly and only when relevant.</p><ul><li>Best for: awareness</li><li>Need: visual proof, crisp hook</li><li>CTA: star, install, remix</li></ul></article>
+        <article class="card"><h3>YouTube / Loom / Shorts</h3><p class="tag">Conversion asset</p><p>A 60-120 second demo increases trust everywhere else. Show the before/after: prompt mess → skill-driven result.</p><ul><li>Best for: explaining utility</li><li>Need: no fluff, clear output</li><li>CTA: link to README</li></ul></article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="eyebrow">Packaging checklist</p>
+      <h2>Make the skill easy to trust before asking for attention</h2>
+      <div class="checkgrid">
+        <label><input type="checkbox"> Outcome-first README: “This skill helps agents do X”</label>
+        <label><input type="checkbox"> <code>SKILL.md</code> frontmatter: name, description, required tools/env</label>
+        <label><input type="checkbox"> One-command install: ClawHub + Git fallback</label>
+        <label><input type="checkbox"> 2-3 concrete examples with expected output</label>
+        <label><input type="checkbox"> Demo GIF/video and screenshots</label>
+        <label><input type="checkbox"> Security notes: no secrets, permissions, external writes</label>
+        <label><input type="checkbox"> Tags/topics for search: platform + domain + agent keywords</label>
+        <label><input type="checkbox"> Changelog and versioning</label>
+      </div>
+    </section>
+
+    <section id="plan" class="panel">
+      <p class="eyebrow">30-day launch sequence</p>
+      <h2>Recommended rollout</h2>
+      <div class="timeline">
+        <article><span>Day 0-2</span><h3>Harden the package</h3><p>Validate install, add examples, record a short demo, add GitHub topics, publish to ClawHub, create a landing page.</p></article>
+        <article><span>Day 3-5</span><h3>Seed high-intent discovery</h3><p>Submit to awesome lists. Share in OpenClaw/Claude/Cursor communities with a “looking for testers” framing.</p></article>
+        <article><span>Day 6-10</span><h3>Artifact-led social posts</h3><p>Post a thread showing the problem, the generated artifact, and the install path. Reuse the same demo as a short video.</p></article>
+        <article><span>Day 11-20</span><h3>Show HN / Reddit</h3><p>Launch once there is proof and a tight story. Use a title about the result, not the implementation. Stay in comments.</p></article>
+        <article><span>Day 21-30</span><h3>Productize or bundle</h3><p>If there is traction, bundle related skills and consider Product Hunt. Publish a “what we learned” update with usage examples.</p></article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="eyebrow">Copy/paste launch assets</p>
+      <h2>Post templates</h2>
+      <details open><summary>GitHub README opener</summary><pre>This skill helps agents [do outcome] without re-explaining the workflow every time.
+
+Use it when: [3 bullets]
+Install: openclaw skills install [slug]
+Demo: [link]
+Examples: [link]</pre></details>
+      <details><summary>Show HN title</summary><pre>Show HN: I built an agent skill that turns [input] into [useful output]</pre></details>
+      <details><summary>Reddit / Discord post</summary><pre>I kept running into [specific workflow pain], so I packaged the repeatable part as an agent skill.
+
+Demo: [link]
+Install: [command]
+Repo: [link]
+
+I’m looking for feedback on: [1-2 concrete questions].</pre></details>
+      <details><summary>X / LinkedIn thread hook</summary><pre>Prompts are bad at repeatable workflows.
+
+I packaged [workflow] as an agent skill so the agent remembers:
+- when to use it
+- what tools it needs
+- how to validate the result
+
+Demo + install: [link]</pre></details>
+    </section>
+
+    <section id="sources" class="panel sources">
+      <p class="eyebrow">Research basis</p>
+      <h2>Sources checked</h2>
+      <ul>
+        <li><a href="https://docs.openclaw.ai/tools/skills">OpenClaw Skills docs</a> - loading model, install commands, ClawHub install/update/verify flow.</li>
+        <li><a href="https://clawhub.ai/">ClawHub</a> - public skill/plugin discovery and publish CLI examples.</li>
+        <li><a href="https://github.com/openclaw/agent-skills">openclaw/agent-skills</a> - canonical shared-skill repo practices and validation notes.</li>
+        <li><a href="https://github.com/daymade/claude-code-skills">daymade/claude-code-skills</a> and other GitHub directories - marketplace/listing patterns.</li>
+        <li><a href="https://github.com/philipbankier/awesome-agent-skills">awesome-agent-skills directories</a> - cross-platform curation opportunities.</li>
+        <li><a href="https://www.producthunt.com/categories/ai-agents">Product Hunt AI agents</a> and <a href="https://www.producthunt.com/categories/ai-coding-agents">AI coding agents</a> categories - fit for productized bundles.</li>
+        <li><a href="https://news.ycombinator.com/yli.html">Hacker News Launch HN instructions</a> plus Show HN/dev-tool launch research - community-native launch mechanics.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
