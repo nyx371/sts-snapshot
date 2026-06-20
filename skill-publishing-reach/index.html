@@ -24,10 +24,10 @@
     <section class="panel verdict">
       <p class="eyebrow">Recommendation</p>
       <h2>Best path: GitHub + ClawHub + proof-led launch loop</h2>
-      <p>Do not start with “here is a skill.” Start with a concrete artifact the skill produces, then link to a one-command install. For OpenClaw skills, publish to <a href="https://clawhub.ai/">ClawHub</a> and keep GitHub as the canonical, source-controlled project. Then distribute the artifact in communities that already care about agent workflows.</p>
+      <p>Do not start with “here is a skill.” Start with a concrete artifact the skill produces, then link to a one-command install. For OpenClaw skills, publish to <a href="https://clawhub.ai/">ClawHub</a> and keep GitHub as the canonical, source-controlled project. Then submit to directory/search surfaces such as OfficialSkills when eligible, AgentSkill, FindSkills, skills.sh, SkillHub, SkillsMP, SkillRegistry, and awesome lists before doing broader community launches.</p>
       <div class="priority-list">
         <article><span>01</span><h3>Foundation</h3><p>GitHub repo, ClawHub listing, verified install, 90-second demo, short “why this exists.”</p></article>
-        <article><span>02</span><h3>Discovery</h3><p>Awesome lists, ClawHub search tags, GitHub topics, README SEO, docs links.</p></article>
+        <article><span>02</span><h3>Discovery</h3><p>OfficialSkills if eligible, AgentSkill, FindSkills, skills.sh, awesome lists, ClawHub tags, GitHub topics, README SEO.</p></article>
         <article><span>03</span><h3>Launch</h3><p>Show HN, Product Hunt if packaged as a product, Reddit/Discord community posts, X/LinkedIn thread.</p></article>
       </div>
     </section>
@@ -46,6 +46,23 @@
         <article class="card"><h3>X / LinkedIn / Bluesky</h3><p class="tag">Narrative reach</p><p>Post short artifact-first threads: problem, demo, why agent skills beat prompts, install link, next roadmap. Tag related builders sparingly and only when relevant.</p><ul><li>Best for: awareness</li><li>Need: visual proof, crisp hook</li><li>CTA: star, install, remix</li></ul></article>
         <article class="card"><h3>YouTube / Loom / Shorts</h3><p class="tag">Conversion asset</p><p>A 60-120 second demo increases trust everywhere else. Show the before/after: prompt mess → skill-driven result.</p><ul><li>Best for: explaining utility</li><li>Need: no fluff, clear output</li><li>CTA: link to README</li></ul></article>
       </div>
+    </section>
+
+
+
+    <section class="panel">
+      <p class="eyebrow">Directory layer</p>
+      <h2>Do include OfficialSkills and the other skill directories</h2>
+      <p>The first version of this brief underweighted directory SEO. That was a miss. These sites matter because many users will not start in ClawHub or GitHub - they will search “Claude skills,” “agent skills,” “OpenClaw skills,” or ask an agent to find a tool. Directory presence creates ambient discovery.</p>
+      <div class="cards compact">
+        <article class="card high"><h3>OfficialSkills</h3><p class="tag">Best if the skill is from an official product/team</p><p><a href="https://officialskills.sh/">officialskills.sh</a> indexes agent skills published by official developer teams. Use it if you can credibly publish as the product owner, company, or project maintainer. It is less useful for generic community experiments unless they accept broader submissions later.</p></article>
+        <article class="card high"><h3>AgentSkill</h3><p class="tag">Broad marketplace/search surface</p><p><a href="https://agentskill.sh/">agentskill.sh</a> positions itself as a large cross-agent directory for Claude Code, Cursor, Copilot, Codex, Windsurf, Zed, and more. Good for broad “agent skill” discovery.</p></article>
+        <article class="card"><h3>FindSkills</h3><p class="tag">Agent-readable discovery</p><p><a href="https://www.findskills.org/">FindSkills</a> indexes GitHub, ClawHub, and OpenClaw ecosystems, exposes search/API/OpenAPI endpoints, and has an MCP path. This is valuable because agents themselves may use it to discover skills.</p></article>
+        <article class="card"><h3>skills.sh</h3><p class="tag">Open agent skills ecosystem</p><p><a href="https://www.skills.sh/">skills.sh</a> presents a simple install-oriented directory for reusable agent capabilities. Worth checking for submission/indexing if the repo is public.</p></article>
+        <article class="card"><h3>SkillHub / SkillsMP / SkillRegistry</h3><p class="tag">Additional SEO and comparison surfaces</p><p>These are secondary but useful for long-tail search. Submit or ensure indexing once the canonical repo and ClawHub listing are polished.</p></article>
+        <article class="card"><h3>Security-scored directories</h3><p class="tag">Trust signal</p><p>Directories such as SkillsDirectory emphasize scanning and verification. For skills that execute commands, touch credentials, or use external APIs, a “verified/safe” listing can matter more than raw reach.</p></article>
+      </div>
+      <p class="note"><strong>Updated recommendation:</strong> add directory submission as Step 2, right after GitHub + ClawHub. Prioritize OfficialSkills only when the publisher identity is official; otherwise prioritize AgentSkill, FindSkills, awesome lists, and community directories.</p>
     </section>
 
     <section class="panel">
@@ -68,7 +85,7 @@
       <h2>Recommended rollout</h2>
       <div class="timeline">
         <article><span>Day 0-2</span><h3>Harden the package</h3><p>Validate install, add examples, record a short demo, add GitHub topics, publish to ClawHub, create a landing page.</p></article>
-        <article><span>Day 3-5</span><h3>Seed high-intent discovery</h3><p>Submit to awesome lists. Share in OpenClaw/Claude/Cursor communities with a “looking for testers” framing.</p></article>
+        <article><span>Day 3-5</span><h3>Seed high-intent discovery</h3><p>Submit to OfficialSkills if eligible, AgentSkill, FindSkills, skills.sh, SkillHub/SkillsMP/SkillRegistry, and awesome lists. Then share in OpenClaw/Claude/Cursor communities with a “looking for testers” framing.</p></article>
         <article><span>Day 6-10</span><h3>Artifact-led social posts</h3><p>Post a thread showing the problem, the generated artifact, and the install path. Reuse the same demo as a short video.</p></article>
         <article><span>Day 11-20</span><h3>Show HN / Reddit</h3><p>Launch once there is proof and a tight story. Use a title about the result, not the implementation. Stay in comments.</p></article>
         <article><span>Day 21-30</span><h3>Productize or bundle</h3><p>If there is traction, bundle related skills and consider Product Hunt. Publish a “what we learned” update with usage examples.</p></article>
@@ -113,6 +130,9 @@ Demo + install: [link]</pre></details>
         <li><a href="https://github.com/philipbankier/awesome-agent-skills">awesome-agent-skills directories</a> - cross-platform curation opportunities.</li>
         <li><a href="https://www.producthunt.com/categories/ai-agents">Product Hunt AI agents</a> and <a href="https://www.producthunt.com/categories/ai-coding-agents">AI coding agents</a> categories - fit for productized bundles.</li>
         <li><a href="https://news.ycombinator.com/yli.html">Hacker News Launch HN instructions</a> plus Show HN/dev-tool launch research - community-native launch mechanics.</li>
+
+        <li><a href="https://officialskills.sh/">OfficialSkills</a> - official-team skill directory; strong trust signal when publisher identity qualifies.</li>
+        <li><a href="https://agentskill.sh/">AgentSkill</a>, <a href="https://www.findskills.org/">FindSkills</a>, <a href="https://www.skills.sh/">skills.sh</a>, <a href="https://skillregistry.io/">SkillRegistry</a>, and related directories - broad cross-agent directory layer for SEO and agent-readable discovery.</li>
       </ul>
     </section>
   </main>
