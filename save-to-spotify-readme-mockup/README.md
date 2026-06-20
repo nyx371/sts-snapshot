@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="./assets/hero-placeholder.svg" alt="Save to Spotify hero placeholder" width="100%" />
-</p>
-
 <h1 align="center">Save to Spotify</h1>
 
 <p align="center">
@@ -9,36 +5,19 @@
 </p>
 
 <p align="center">
-  Turn files, notes, links, transcripts, or generated audio into Spotify episodes with cover art, chapters, timeline images, links, and Spotify cards.
+  Ask your agent for audio. Get a Spotify episode with metadata, cover art, chapters, timeline images, links, and Spotify cards.
 </p>
 
 <p align="center">
   <a href="https://officialskills.sh/spotify/save-to-spotify"><strong>OfficialSkills</strong></a> ·
   <a href="https://clawhub.ai/spotify/save-to-spotify"><strong>ClawHub</strong></a> ·
   <a href="#install"><strong>Install</strong></a> ·
-  <a href="#safety"><strong>Safety</strong></a>
+  <a href="#quick-start"><strong>Quick start</strong></a>
 </p>
 
 <p align="center">
   <img alt="Official Spotify Skill" src="https://img.shields.io/badge/Official-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white" />
   <img alt="Agent Skill" src="https://img.shields.io/badge/Agent%20Skill-SKILL.md-7C3AED?style=for-the-badge" />
-</p>
-
----
-
-## What it does
-
-Save to Spotify lets an agent create or upload audio and save it where you already listen.
-
-Use it for placeholder workflows like:
-
-- `[placeholder source]` → Spotify episode
-- `[placeholder source material]` → polished audio output
-- `[placeholder repeatable listening workflow]`
-- `[placeholder internal notes / updates / docs]` → audio
-
-<p align="center">
-  <img src="./assets/episode-card-placeholder.svg" alt="Placeholder Spotify episode card" width="78%" />
 </p>
 
 ## Install
@@ -53,34 +32,30 @@ Or run it yourself:
 
 ```bash
 curl -fsSL https://saveto.spotify.com/install.sh | bash
-```
-
-Then authenticate once:
-
-```bash
 save-to-spotify auth login
 save-to-spotify doctor
 ```
 
-Other install paths:
+## Quick start
 
-```bash
-openclaw skills install @spotify/save-to-spotify
-npx skills add spotify/save-to-spotify
-```
-
-## Example prompt
+Give your agent a source and a destination:
 
 ```text
-Turn [placeholder source] into a [placeholder duration] Spotify episode.
-Use [placeholder style].
+Turn [placeholder source] into a [placeholder length] Spotify episode.
+Use [placeholder tone].
 Save it to [placeholder show].
 Preview before uploading.
 ```
 
-## What it can produce
+Good sources can be files, links, notes, transcripts, or existing audio.
 
-- audio upload: MP3, M4A, WAV, OGG
+<p align="center">
+  <img src="./assets/workflow-gallery.svg" alt="Placeholder workflow gallery" width="100%" />
+</p>
+
+## What you get
+
+- Spotify episode upload
 - show and episode metadata
 - cover image
 - chapters
@@ -89,43 +64,56 @@ Preview before uploading.
 - Spotify entity cards
 - readiness checks
 
-## Safety
+<p align="center">
+  <img src="./assets/episode-card-placeholder.svg" alt="Placeholder Spotify episode preview" width="78%" />
+</p>
 
-The skill should preview and ask before it writes to Spotify.
-
-It should clearly show:
-
-- active Spotify account
-- requested OAuth scopes
-- read-only vs write actions
-- what will be created or changed
-- how to validate the result
-
-Useful checks:
+## Useful commands
 
 ```bash
 save-to-spotify auth status
 save-to-spotify doctor
+save-to-spotify upload ./episode.mp3 --title "[placeholder title]"
 save-to-spotify --json timeline validate --from-file timeline.json
 ```
 
+## Safety
+
+Save to Spotify should be easy to trust:
+
+- preview before upload or write actions
+- show the active Spotify account
+- explain requested OAuth scopes
+- separate read-only checks from changes
+- validate the result after upload
+
+<p align="center">
+  <img src="./assets/oauth-scope-preview.svg" alt="Placeholder OAuth and consent preview" width="100%" />
+</p>
+
 ## For agent builders
 
-Design principles:
+Keep the skill simple and helpful:
 
-- intent over commands
-- ask fewer, better questions
+- start from user intent, not CLI flags
+- ask only what changes the result
+- use sensible defaults
 - preview before mutation
-- show observable outputs
+- return links and validation status
 - recover clearly from auth, rate limits, or partial failures
-- keep future Spotify workflows composable
+
+## Other install paths
+
+```bash
+openclaw skills install @spotify/save-to-spotify
+npx skills add spotify/save-to-spotify
+```
 
 ## Placeholder assets
 
 Replace these before launch:
 
-- `assets/hero-placeholder.svg`
+- `assets/workflow-gallery.svg`
 - `assets/episode-card-placeholder.svg`
 - `assets/timeline-preview.svg`
 - `assets/oauth-scope-preview.svg`
-- `assets/workflow-gallery.svg`

@@ -30,60 +30,42 @@
     </section>
 
     <article class="markdown-body">
-      <p align="center"><img class="hero-img" src="assets/hero-placeholder.svg" alt="Save to Spotify hero placeholder" /></p>
-
       <h1 align="center">Save to Spotify</h1>
       <p align="center"><strong>The official Spotify skill for saving agent-made audio to Spotify.</strong></p>
-      <p align="center">Turn files, notes, links, transcripts, or generated audio into Spotify episodes with cover art, chapters, timeline images, links, and Spotify cards.</p>
+      <p align="center">Ask your agent for audio. Get a Spotify episode with metadata, cover art, chapters, timeline images, links, and Spotify cards.</p>
       <p align="center">
         <a href="https://officialskills.sh/spotify/save-to-spotify"><strong>OfficialSkills</strong></a> ·
         <a href="https://clawhub.ai/spotify/save-to-spotify"><strong>ClawHub</strong></a> ·
         <a href="#install"><strong>Install</strong></a> ·
-        <a href="#safety"><strong>Safety</strong></a>
+        <a href="#quick-start"><strong>Quick start</strong></a>
       </p>
       <p align="center">
         <img alt="Official Spotify Skill" src="https://img.shields.io/badge/Official-Spotify-1DB954?style=for-the-badge&logo=spotify&logoColor=white" />
         <img alt="Agent Skill" src="https://img.shields.io/badge/Agent%20Skill-SKILL.md-7C3AED?style=for-the-badge" />
       </p>
 
-      <hr />
-
-      <h2>What it does</h2>
-      <p>Save to Spotify lets an agent create or upload audio and save it where you already listen.</p>
-      <p>Use it for placeholder workflows like:</p>
-      <ul>
-        <li><code>[placeholder source]</code> → Spotify episode</li>
-        <li><code>[placeholder source material]</code> → polished audio output</li>
-        <li><code>[placeholder repeatable listening workflow]</code></li>
-        <li><code>[placeholder internal notes / updates / docs]</code> → audio</li>
-      </ul>
-
-      <p align="center"><img class="episode-img" src="assets/episode-card-placeholder.svg" alt="Placeholder Spotify episode card" /></p>
-
       <h2 id="install">Install</h2>
       <p>Prompt your agent to install:</p>
       <pre><code>&gt; Install Save to Spotify by running https://saveto.spotify.com/install.sh</code></pre>
 
       <p>Or run it yourself:</p>
-      <pre><code>curl -fsSL https://saveto.spotify.com/install.sh | bash</code></pre>
-
-      <p>Then authenticate once:</p>
-      <pre><code>save-to-spotify auth login
+      <pre><code>curl -fsSL https://saveto.spotify.com/install.sh | bash
+save-to-spotify auth login
 save-to-spotify doctor</code></pre>
 
-      <p>Other install paths:</p>
-      <pre><code>openclaw skills install @spotify/save-to-spotify
-npx skills add spotify/save-to-spotify</code></pre>
-
-      <h2>Example prompt</h2>
-      <pre><code>Turn [placeholder source] into a [placeholder duration] Spotify episode.
-Use [placeholder style].
+      <h2 id="quick-start">Quick start</h2>
+      <p>Give your agent a source and a destination:</p>
+      <pre><code>Turn [placeholder source] into a [placeholder length] Spotify episode.
+Use [placeholder tone].
 Save it to [placeholder show].
 Preview before uploading.</code></pre>
+      <p>Good sources can be files, links, notes, transcripts, or existing audio.</p>
 
-      <h2>What it can produce</h2>
+      <p align="center"><img class="hero-img" src="assets/workflow-gallery.svg" alt="Placeholder workflow gallery" /></p>
+
+      <h2>What you get</h2>
       <ul>
-        <li>audio upload: MP3, M4A, WAV, OGG</li>
+        <li>Spotify episode upload</li>
         <li>show and episode metadata</li>
         <li>cover image</li>
         <li>chapters</li>
@@ -93,41 +75,48 @@ Preview before uploading.</code></pre>
         <li>readiness checks</li>
       </ul>
 
-      <h2 id="safety">Safety</h2>
-      <p>The skill should preview and ask before it writes to Spotify.</p>
-      <p>It should clearly show:</p>
-      <ul>
-        <li>active Spotify account</li>
-        <li>requested OAuth scopes</li>
-        <li>read-only vs write actions</li>
-        <li>what will be created or changed</li>
-        <li>how to validate the result</li>
-      </ul>
+      <p align="center"><img class="episode-img" src="assets/episode-card-placeholder.svg" alt="Placeholder Spotify episode preview" /></p>
 
-      <p>Useful checks:</p>
+      <h2>Useful commands</h2>
       <pre><code>save-to-spotify auth status
 save-to-spotify doctor
+save-to-spotify upload ./episode.mp3 --title "[placeholder title]"
 save-to-spotify --json timeline validate --from-file timeline.json</code></pre>
 
-      <h2>For agent builders</h2>
-      <p>Design principles:</p>
+      <h2>Safety</h2>
+      <p>Save to Spotify should be easy to trust:</p>
       <ul>
-        <li>intent over commands</li>
-        <li>ask fewer, better questions</li>
-        <li>preview before mutation</li>
-        <li>show observable outputs</li>
-        <li>recover clearly from auth, rate limits, or partial failures</li>
-        <li>keep future Spotify workflows composable</li>
+        <li>preview before upload or write actions</li>
+        <li>show the active Spotify account</li>
+        <li>explain requested OAuth scopes</li>
+        <li>separate read-only checks from changes</li>
+        <li>validate the result after upload</li>
       </ul>
+
+      <p align="center"><img class="hero-img" src="assets/oauth-scope-preview.svg" alt="Placeholder OAuth and consent preview" /></p>
+
+      <h2>For agent builders</h2>
+      <p>Keep the skill simple and helpful:</p>
+      <ul>
+        <li>start from user intent, not CLI flags</li>
+        <li>ask only what changes the result</li>
+        <li>use sensible defaults</li>
+        <li>preview before mutation</li>
+        <li>return links and validation status</li>
+        <li>recover clearly from auth, rate limits, or partial failures</li>
+      </ul>
+
+      <h2>Other install paths</h2>
+      <pre><code>openclaw skills install @spotify/save-to-spotify
+npx skills add spotify/save-to-spotify</code></pre>
 
       <h2>Placeholder assets</h2>
       <p>Replace these before launch:</p>
       <ul>
-        <li><code>assets/hero-placeholder.svg</code></li>
+        <li><code>assets/workflow-gallery.svg</code></li>
         <li><code>assets/episode-card-placeholder.svg</code></li>
         <li><code>assets/timeline-preview.svg</code></li>
         <li><code>assets/oauth-scope-preview.svg</code></li>
-        <li><code>assets/workflow-gallery.svg</code></li>
       </ul>
     </article>
   </main>
