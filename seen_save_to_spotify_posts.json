@@ -76,11 +76,11 @@
     "2026-06-20": 368
   },
   "initialized": true,
-  "last_updated_at": "2026-06-20T09:04:17.186544+00:00",
+  "last_updated_at": "2026-06-20T09:31:48.469315+00:00",
   "seen": {
     "001cdc38480e52c9b28e243b1f23b818c165aecd": {
       "first_seen_at": "2026-05-15T00:06:35.168889+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Thu, 07 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-07T07:00:00+00:00",
@@ -175,18 +175,18 @@
     },
     "0e42a61ea31f8109458a79205203a51304866b71": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "1 reply \u00b7 1 repost \u00b7 57 views",
-      "published_at": "2026-05-12T09:54:52+00:00",
+      "metrics": "1 reply \u00b7 1 repost \u00b7 47 views",
+      "published_at": "2026-05-12T09:54:52.756000+00:00",
       "snippet": null,
       "source": "X / @DriftNote_",
-      "title": "@Spotify is testing a new \u201cSave to Spotify\u201d feature that lets AI tools create personal podcasts and save them directly into a user\u2019s Spotify library. The examples are interesting: - daily briefings - study notes - travel plans",
+      "title": "Spotify is testing Save to Spotify for AI tools to create personal podcasts.",
       "url": "https://x.com/DriftNote_/status/2054138230103228837"
     },
     "0e6b2636a273c9fdbaadd8aa2b934dec6264c8b8": {
       "first_seen_at": "2026-06-08T08:01:52.419667+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "reply by ThePodfather",
       "metrics": null,
       "published_at": "2026-06-08T07:59:11+00:00",
@@ -197,13 +197,13 @@
     },
     "0f166309faef9a557679ec9c513eef498451f60c": {
       "first_seen_at": "2026-05-14T13:27:06.505365+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
-      "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "82 views",
-      "published_at": "2026-05-10T09:30:00+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "meta": "Tracked via logged-in X browser sweep / curated override.",
+      "metrics": "70 views",
+      "published_at": "2026-05-10T09:30:00.244000+00:00",
       "snippet": null,
       "source": "X / @Intellectualins",
-      "title": "Spotify has launched a new command\u2011line tool called \u201cSave to Spotify\u201d that lets users save AI\u2011generated podcasts directly into their Spotify podcast feed. It is designed to work with AI agents such as OpenClaw, Claude Code, or OpenAI Codex ",
+      "title": "Spotify has launched a new command-line tool called \u201cSave to Spotify\u201d.",
       "url": "https://x.com/Intellectualins/status/2053407194322813179"
     },
     "107da7c65a3bc5b841aa5606553b4e8f6d7e237f": {
@@ -219,13 +219,13 @@
     },
     "114210a81969cfd6d6504bfbe324eafe991b4af4": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "352 views",
-      "published_at": "2026-05-11T11:18:27+00:00",
+      "metrics": "341 views",
+      "published_at": "2026-05-11T11:18:27.122000+00:00",
       "snippet": null,
       "source": "X / @Medvidekpu",
-      "title": "Translated from Czech Show original Sunday #newsletter 365tips ::: How to password-protect a folder on a Mac. Does Safari also have a Task Manager? Chrome is filling computers with an unnecessary AI model - Save to Spotify. EU launches camp",
+      "title": "Newsletter mention including Save to Spotify.",
       "url": "https://x.com/Medvidekpu/status/2053796874012819502"
     },
     "115cf446d322878bf260c578198b65476eedc04d": {
@@ -271,9 +271,20 @@
       "title": "Spotify launches global beta for AI-personalized podcasts",
       "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPempTU2FhN2ZuVEM5RG5tUzZoczMyQno4M2hubVlBdlh3dDVJaWFrWVhjTnpVdXVxY0hrWUR0c3QyYTdBYTRaR3ZMTDFNaFBfWUtRQm9jeTVWVkNYcVo2T2lETDVnUk5VcDFfbEYwWGRlY0JLdVFFdkZBa3dEdTZSbGN3bnZ2cmpFcklhbkR5NXJZZks5MHlvbDJURzhIcGI2Ym9GelFSbkhYSDFHMGE0eUJFbjRRdWdjanhWNmpUSTNXazdSTW4yZUNJUm8wQlkzZ0pSSWZpcUZlb3VJNWRBSUZ5OENHR1gyWVhubFdja0U?oc=5"
     },
+    "1489bbd834be114348dde630c058f474e383abe4": {
+      "first_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "meta": "Found via logged-in X live search for save-to-spotify.",
+      "metrics": "2 likes \u00b7 102 views",
+      "published_at": "2026-05-09T08:52:01+00:00",
+      "snippet": null,
+      "source": "X / @BlogNTMedia",
+      "title": "Ne lisez plus vos articles, \u00e9coutez-les ! Spotify lance Save to Spotify, une fonction r\u00e9volutionnaire o\u00f9 l'IA transforme vos lectures en podcasts personnels instantan\u00e9s. Votre veille technologique n'a jamais \u00e9t\u00e9 aussi simple \u00e0 rattraper. D\u00e9",
+      "url": "https://x.com/BlogNTMedia/status/2053035248657510782"
+    },
     "14d228e1754f09b5389372ae50e4bdc15cb1c491": {
       "first_seen_at": "2026-05-10T22:36:18.438667+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Sun, 10 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-10T07:00:00+00:00",
@@ -316,7 +327,7 @@
     },
     "1a12be4f64038ac582b499f195c7f9123b69c4ae": {
       "first_seen_at": "2026-05-17T12:03:35.073023+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "2026-05-17T11:43:19Z",
       "metrics": null,
       "published_at": null,
@@ -412,18 +423,18 @@
     },
     "23da99bf96a2b1f2dbf9fa79cd48f8b5c3286cb0": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "1 reply \u00b7 1 like \u00b7 71 views",
-      "published_at": "2026-05-11T10:44:59+00:00",
+      "metrics": "1 like \u00b7 60 views",
+      "published_at": "2026-05-11T10:44:59.260000+00:00",
       "snippet": null,
       "source": "X / @YEB_TO",
-      "title": "Today, Spotify is taking things a step further by launching \u2018Save to Spotify\u2019, a new beta tool that turns your AI agent into a personal podcast producer. If you\u2019re already using an AI agent like OpenClaw, Claude Code, or OpenAI Codex on des",
+      "title": "Spotify launches Save to Spotify beta tool that turns AI agents into personal podcast producers.",
       "url": "https://x.com/YEB_TO/status/2053788452429131805"
     },
     "2763321e6609331e89b0e6e2f0404ffd53a45c4d": {
       "first_seen_at": "2026-05-10T22:36:18.438667+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Thu, 07 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-07T07:00:00+00:00",
@@ -499,13 +510,13 @@
     },
     "372027a9969649a14eb59c992873e898a43af067": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "2 likes \u00b7 2 bookmarks \u00b7 151 views",
-      "published_at": "2026-05-09T13:33:57.560000+00:00",
+      "metrics": "2 likes \u00b7 2 bookmarks \u00b7 153 views",
+      "published_at": "2026-05-09T13:33:57+00:00",
       "snippet": null,
       "source": "X / @sozo_museum",
-      "title": "Japanese media share: Spotify releases CLI tool Save to Spotify for AI-generated audio content.",
+      "title": "Spotify\u3001AI\u751f\u6210\u306e\u97f3\u58f0\u30b3\u30f3\u30c6\u30f3\u30c4\u3092\u4fdd\u5b58\u3067\u304d\u308bCLI\u30c4\u30fc\u30eb\u300cSave to Spotify\u300d\u516c\u958b Spotify\u3001AI\u751f\u6210\u306e\u97f3\u58f0\u30b3\u30f3\u30c6\u30f3\u30c4\u3092\u4fdd\u5b58\u3067\u304d\u308bCLI\u30c4\u30fc\u30eb\u300cSave to Spotify\u300d\u516c\u958b From itmedia.co.jp",
       "url": "https://x.com/sozo_museum/status/2053106199810453943"
     },
     "391ee475c5b9c4bc623d92b0ebbe321c1977ca08": {
@@ -543,10 +554,10 @@
     },
     "3d8d20e04ff48bde710fb0e820ac8ae5477f3f04": {
       "first_seen_at": "2026-05-14T21:04:20.282103+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "GadInsider  \u00b7 1 month ago \u00b7 207 views \u00b7 1:54",
       "metrics": "207 views \u00b7 0 likes",
-      "published_at": "2026-05-21T09:04:17.186544+00:00",
+      "published_at": "2026-05-21T09:31:48.469315+00:00",
       "snippet": "Spotify will now use AI agents like Claude Code and OpenClaw to generate personal podcasts and upload them to the platform.",
       "source": "YouTube",
       "title": "Spotify Is Giving Users A Way To Listen To Their AI Generated Podcasts",
@@ -565,7 +576,7 @@
     },
     "425fc4eb149f5f190f9d04f1db283d8595d0d62e": {
       "first_seen_at": "2026-06-05T11:31:55.777266+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "reply by meirtsvi",
       "metrics": null,
       "published_at": "2026-06-05T11:20:32+00:00",
@@ -650,13 +661,13 @@
     },
     "50c1df2e527ddc7e7ee29d1d16937b9510f91efe": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "2 replies \u00b7 1 repost \u00b7 9 likes \u00b7 3 bookmarks \u00b7 552 views",
-      "published_at": "2026-05-09T00:29:41.482000+00:00",
+      "metrics": "2 replies \u00b7 1 repost \u00b7 9 likes \u00b7 3 bookmarks \u00b7 597 views",
+      "published_at": "2026-05-09T00:29:41+00:00",
       "snippet": null,
       "source": "X / @ArtinBogdanov",
-      "title": "Reply to GustavS: Sun pairs with Save-to-Spotify CLI for higher-quality personal podcasts.",
+      "title": "Replying to @GustavS We just created Sun , a skill that pairs with your Save-to-Spotify CLI to generate higher-quality personal podcasts (faster too, and cheaper). Repo: https:// github.com/sunapp-ai/sun-",
       "url": "https://x.com/ArtinBogdanov/status/2052908832314233193"
     },
     "53c6e683ac487cdfff9200dee693ae7a2fddb61c": {
@@ -668,6 +679,17 @@
       "source": "YouTube",
       "title": "AI News: ChatGPT Is Back, NotebookLM Update, Google AI Health Coach, New Pomelli Feature...",
       "url": "https://www.youtube.com/watch?v=myJ2IVHOfrI"
+    },
+    "58ab62272f0916d996649d33510e7fbe673e9992": {
+      "first_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "meta": "Found via logged-in X live search for save-to-spotify.",
+      "metrics": "12 reposts \u00b7 29 likes \u00b7 10 bookmarks \u00b7 7897 views",
+      "published_at": "2026-05-08T02:00:06+00:00",
+      "snippet": null,
+      "source": "X / @itmedia_news",
+      "title": "Spotify\u3001AI\u751f\u6210\u306e\u97f3\u58f0\u30b3\u30f3\u30c6\u30f3\u30c4\u3092\u4fdd\u5b58\u3067\u304d\u308bCLI\u30c4\u30fc\u30eb\u300cSave to Spotify\u300d\u516c\u958b Spotify\u3001AI\u751f\u6210\u306e\u97f3\u58f0\u30b3\u30f3\u30c6\u30f3\u30c4\u3092\u4fdd\u5b58\u3067\u304d\u308bCLI\u30c4\u30fc\u30eb\u300cSave to Spotify\u300d\u516c\u958b From itmedia.co.jp",
+      "url": "https://x.com/itmedia_news/status/2052569197721559167"
     },
     "590406fb33c9e3ec422078c413cabb3d6cee4693": {
       "first_seen_at": "2026-05-13T17:14:09.979458+00:00",
@@ -681,13 +703,13 @@
     },
     "5a3bb139dc0c9d20ccdcfcb69ffe142170f16f31": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "78 views",
-      "published_at": "2026-05-10T04:37:16+00:00",
+      "metrics": "63 views",
+      "published_at": "2026-05-10T04:37:16.375000+00:00",
       "snippet": null,
       "source": "X / @AIsyuuekika",
-      "title": "Translated from Japanese Show original Spotify has announced a new voice content management tool called \"Save to Spotify\" that utilizes cutting-edge AI technology. I think its effectiveness will depend on how it's used, so I'm super curious",
+      "title": "Japanese mention: Spotify announced Save to Spotify voice content management tool.",
       "url": "https://x.com/AIsyuuekika/status/2053333526117032060"
     },
     "5a9ac531d77c67fab44cab777426de8f799d6f00": {
@@ -703,18 +725,18 @@
     },
     "5f41d7063e24ff05927f4c10192f807e7986642d": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "217 views",
-      "published_at": "2026-05-11T09:39:04+00:00",
+      "metrics": "208 views",
+      "published_at": "2026-05-11T09:39:04.719000+00:00",
       "snippet": null,
       "source": "X / @365tipu",
-      "title": "Translated from Czech Show original Sunday #newsletter ::: How to password-protect a folder on Mac. Does Safari also have a Task Manager? Chrome fills computers with unnecessary AI model - Save to Spotify. EU launches campaign against VPN. ",
+      "title": "Newsletter mention including Save to Spotify.",
       "url": "https://x.com/365tipu/status/2053771865882034180"
     },
     "5f66d6bf9ab0f9bfaaf17c01ed6741b8b18a84bc": {
       "first_seen_at": "2026-06-14T17:01:52.682134+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Sun, 14 Jun 2026 16:38:09 GMT",
       "metrics": null,
       "published_at": "2026-06-14T16:38:09+00:00",
@@ -725,18 +747,18 @@
     },
     "62a6867950b25548d7036f42a86740d0bee89868": {
       "first_seen_at": "2026-05-11T20:41:21.278796+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
-      "meta": "Good thread to watch for product/strategy discussion.",
-      "metrics": "7 replies \u00b7 2 reposts \u00b7 103 likes \u00b7 72 bookmarks \u00b7 32,997 views",
-      "published_at": "2026-05-08T15:34:51.145000+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "meta": "Found via logged-in X live search for save-to-spotify.",
+      "metrics": "6 replies \u00b7 2 reposts \u00b7 103 likes \u00b7 72 bookmarks \u00b7 33188 views",
+      "published_at": "2026-05-08T15:34:51+00:00",
       "snippet": null,
       "source": "X / @mignano",
-      "title": "Spotify product/startup angle; launch post with visible traction (90+ likes when first checked).",
+      "title": "Spotify learned a long time ago that people love having all of their different types of audio (music, podcasts, etc) all in one place. This is a big reason why Spotify ended up wrestling the podcast opportunity away from Apple years ago: wh",
       "url": "https://x.com/mignano/status/2052774235685208080"
     },
     "63b7563543553f7df2a891b4774d3d4b182c0b04": {
       "first_seen_at": "2026-05-17T12:03:35.073023+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "2026-05-17T11:06:22Z",
       "metrics": null,
       "published_at": null,
@@ -758,9 +780,9 @@
     },
     "68798324d44079b626cca6a524eeb501fc695146": {
       "first_seen_at": "2026-05-17T13:05:20.341449+00:00",
-      "last_seen_at": "2026-05-18T08:37:17.325791+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "3 replies \u00b7 2 reposts \u00b7 11 likes \u00b7 14 bookmarks \u00b7 2827 views",
+      "metrics": "3 replies \u00b7 2 reposts \u00b7 11 likes \u00b7 14 bookmarks \u00b7 2992 views",
       "published_at": "2026-05-09T01:06:48+00:00",
       "snippet": null,
       "source": "X / @om_patel5",
@@ -769,7 +791,7 @@
     },
     "68d3636e141cb5915153c031378b121b0cca251c": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
       "metrics": "1 reply \u00b7 41 views",
       "published_at": "2026-05-09T15:25:33.506000+00:00",
@@ -778,9 +800,20 @@
       "title": "Hebrew post: Save to Spotify lets AI agents save podcasts directly to a user library.",
       "url": "https://x.com/brainpercent/status/2053134284643250187"
     },
+    "6bbe3ff6a23fe78deb40e22f674eb1a2033ea93f": {
+      "first_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "meta": "Found via logged-in X live search for save-to-spotify.",
+      "metrics": "36 replies \u00b7 39 reposts \u00b7 346 likes \u00b7 392 bookmarks \u00b7 695739 views",
+      "published_at": "2026-05-07T17:17:05+00:00",
+      "snippet": null,
+      "source": "X / @GustavS",
+      "title": "Hey. This one is for all you early adopters out there! Like I\u2019m sure many of you do, every morning an agent preps me for my day - calendar, news, last 24hrs of Slack - in a morning briefing. But mine lands in my Spotify library, so I can li",
+      "url": "https://x.com/GustavS/status/2052437578213962092"
+    },
     "6df314f6dccb4eb66f0770f825cba8db26727e07": {
       "first_seen_at": "2026-05-13T17:22:22.473995+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Fri, 08 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-08T07:00:00+00:00",
@@ -791,7 +824,7 @@
     },
     "6e586645881faac14b1f14039b96269a3a0f4142": {
       "first_seen_at": "2026-05-14T13:27:06.505365+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Tracked via logged-in X browser sweep / curated override.",
       "metrics": "1 reply \u00b7 2 reposts \u00b7 22 likes \u00b7 35 bookmarks \u00b7 2,736 views",
       "published_at": "2026-05-07T17:17:06.639000+00:00",
@@ -832,7 +865,7 @@
     },
     "765bf301a5c293053abcf69b7078585c871a8e55": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
       "metrics": "1 repost \u00b7 2 bookmarks \u00b7 177 views",
       "published_at": "2026-05-09T03:06:24.788000+00:00",
@@ -840,6 +873,17 @@
       "source": "X / @connordavis_ai",
       "title": "Save to Spotify makes Claude Code a podcast distribution channel.",
       "url": "https://x.com/connordavis_ai/status/2052948272638283850"
+    },
+    "77b0176ccba92bb64ec586a1e67f5e7ad440bae1": {
+      "first_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "meta": "Found via logged-in X live search for save-to-spotify.",
+      "metrics": "1 reply \u00b7 1 repost \u00b7 10 likes \u00b7 706 views",
+      "published_at": "2026-06-18T13:55:32+00:00",
+      "snippet": null,
+      "source": "X / @laytoun",
+      "title": "Save to Spotify is now (well a few weeks now) available as a claude code plugin",
+      "url": "https://x.com/laytoun/status/2067607144371814748"
     },
     "781bf4c4fdcbeef07c7aa576edc28f5d0f0560ec": {
       "first_seen_at": "2026-05-10T22:36:18.438667+00:00",
@@ -864,9 +908,9 @@
     },
     "79d9b0110b7a4bdfce435dd97f3554566fbe61b5": {
       "first_seen_at": "2026-05-28T08:38:18.928915+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "2 likes \u00b7 163 views",
+      "metrics": "2 likes \u00b7 184 views",
       "published_at": "2026-05-22T16:46:34+00:00",
       "snippet": null,
       "source": "X / @ArtinBogdanov",
@@ -875,9 +919,9 @@
     },
     "7b3627c1a46ee239ca3905afd228ec96d2a51383": {
       "first_seen_at": "2026-05-28T08:38:18.928915+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "2 replies \u00b7 2 likes \u00b7 258 views",
+      "metrics": "2 replies \u00b7 2 likes \u00b7 272 views",
       "published_at": "2026-05-22T00:16:01+00:00",
       "snippet": null,
       "source": "X / @ArtinBogdanov",
@@ -906,17 +950,18 @@
     },
     "808dce58d1fdd71ab8f2dd6a8cd7e9a51110836c": {
       "first_seen_at": "2026-05-14T20:42:05.435208+00:00",
-      "last_seen_at": "2026-05-14T20:42:05.435208+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "2 likes \u00b7 1 bookmark \u00b7 1758 views",
+      "metrics": "2 likes \u00b7 1 bookmark \u00b7 1763 views",
       "published_at": "2026-05-08T02:10:07+00:00",
+      "snippet": null,
       "source": "X / @topitmedia",
-      "title": "Translated from Chinese Show original [ http:// itmedia.co.jp] Spotify Releases CLI Tool \"Save to Spotify\" for Saving AI-Generated Audio Content https://",
+      "title": "\uff3b http:// itmedia.co.jp\uff3dSpotify\u3001AI\u751f\u6210\u306e\u97f3\u58f0\u30b3\u30f3\u30c6\u30f3\u30c4\u3092\u4fdd\u5b58\u3067\u304d\u308bCLI\u30c4\u30fc\u30eb\u300cSave to Spotify\u300d\u516c\u958b https:// itmedia.co.jp/news/articles/ 2605/08/news059.html",
       "url": "https://x.com/topitmedia/status/2052571720415129839"
     },
     "809c4da784bddb5ed9aeec7e10ace7cf03a374b3": {
       "first_seen_at": "2026-06-13T17:01:48.530062+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "2026-06-13T16:47:10Z",
       "metrics": null,
       "published_at": null,
@@ -978,9 +1023,9 @@
     },
     "88f32f8bd67cfcbde91c7abc44e01c7d835e359c": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "2 likes \u00b7 50 views",
+      "metrics": "2 likes \u00b7 52 views",
       "published_at": "2026-05-13T17:45:46+00:00",
       "snippet": null,
       "source": "X / @InnerGNas",
@@ -999,7 +1044,7 @@
     },
     "8c832f3d8701aaf4a2eff26f320c4e0c886387c4": {
       "first_seen_at": "2026-05-10T22:36:18.438667+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Thu, 07 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-07T07:00:00+00:00",
@@ -1010,7 +1055,7 @@
     },
     "8cb1e7b5e372572d69e32d4b6d186058336840b6": {
       "first_seen_at": "2026-05-24T23:31:49.586210+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Sun, 24 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-24T07:00:00+00:00",
@@ -1032,7 +1077,7 @@
     },
     "8dee5b7b4449ce7e3d9b1e5b3f915b539a510485": {
       "first_seen_at": "2026-05-11T20:41:21.278796+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Initially 3 points / 0 comments; updated stats below when API finds it.",
       "metrics": null,
       "published_at": null,
@@ -1043,10 +1088,10 @@
     },
     "8e345b318e06a30e2863fd95da92b53aab931fbe": {
       "first_seen_at": "2026-05-14T21:27:37.687997+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Run Bot Run \u00b7 1 month ago \u00b7 77 views \u00b7 11:06",
       "metrics": "77 views \u00b7 0 likes",
-      "published_at": "2026-05-21T09:04:17.186544+00:00",
+      "published_at": "2026-05-21T09:31:48.469315+00:00",
       "snippet": "... AI-generated podcasts in Spotify \u2014 https://www.theverge.com/entertainment/925916/save-to-spotify-ai-podcasts - The Verge AI:\u00a0...",
       "source": "YouTube",
       "title": "\u0418\u0418 \u0432\u044b\u0445\u043e\u0434\u0438\u0442 \u0438\u0437 \u0447\u0430\u0442\u0430: \u0430\u0433\u0435\u043d\u0442\u044b, \u0436\u0435\u043b\u0435\u0437\u043e \u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044c \u043d\u043e\u0432\u043e\u0439 \u0433\u043e\u043d\u043a\u0438",
@@ -1076,7 +1121,7 @@
     },
     "906df8bb60c8dcd91eee778abeaa29f34f2e92e4": {
       "first_seen_at": "2026-05-22T09:18:37.569750+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "2 replies \u00b7 by ThePodfather",
       "metrics": null,
       "published_at": "2026-05-22T09:13:00.239000+00:00",
@@ -1104,9 +1149,9 @@
     },
     "987553c336adabdeaa6fb7c4b277b533973d0ea1": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "10 replies \u00b7 7 reposts \u00b7 48 likes \u00b7 10 bookmarks \u00b7 41552 views",
+      "metrics": "10 replies \u00b7 8 reposts \u00b7 50 likes \u00b7 10 bookmarks \u00b7 46131 views",
       "published_at": "2026-05-14T17:00:32+00:00",
       "snippet": null,
       "source": "X / @ArtinBogdanov",
@@ -1125,7 +1170,7 @@
     },
     "9b3f0be11be69bf7e0b890a102d03a1f4469cd0a": {
       "first_seen_at": "2026-05-11T20:41:21.278796+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Useful for launch context and replies from dev circle.",
       "metrics": "3 replies \u00b7 17 likes \u00b7 3 bookmarks \u00b7 1,091 views",
       "published_at": "2026-05-07T17:27:10.209000+00:00",
@@ -1146,10 +1191,10 @@
     },
     "9df7adfd1e10f921ff278e7abe07318409899eb2": {
       "first_seen_at": "2026-05-14T21:27:37.687997+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "AI Daily Standup Briefing \u00b7 1 month ago \u00b7 38 views \u00b7 8:51",
       "metrics": "38 views \u00b7 1 like",
-      "published_at": "2026-05-21T09:04:17.186544+00:00",
+      "published_at": "2026-05-21T09:31:48.469315+00:00",
       "snippet": "... AI-generated podcasts in Spotify \u2014 AI | The Verge https://www.theverge.com/entertainment/925916/save-to-spotify-ai-podcasts\u00a0...",
       "source": "YouTube",
       "title": "NVIDIA GB200 Redefines AI, AWS GPU Rentals & Halliburton AI | May 8, 2026 News",
@@ -1157,7 +1202,7 @@
     },
     "a002a554267134d2a6465a9ee98d74e5863e9236": {
       "first_seen_at": "2026-06-08T14:01:50.631954+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "2026-06-08T14:01:40Z",
       "metrics": null,
       "published_at": null,
@@ -1179,7 +1224,7 @@
     },
     "a21d4b80440ddc84d6870fc1ffa80c968b12e371": {
       "first_seen_at": "2026-05-10T22:36:18.438667+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Thu, 07 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-07T07:00:00+00:00",
@@ -1212,7 +1257,7 @@
     },
     "a872f2f923959fcc483555c87b4785ca62a3beb0": {
       "first_seen_at": "2026-05-14T13:27:06.505365+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Tracked via logged-in X browser sweep / curated override.",
       "metrics": "2 replies \u00b7 2 reposts \u00b7 8 likes \u00b7 470 views",
       "published_at": "2026-05-07T17:22:46.712000+00:00",
@@ -1223,9 +1268,9 @@
     },
     "ade218b87b443fe2af1bff7fb2275a2d835e034b": {
       "first_seen_at": "2026-05-14T13:27:06.505365+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "6 likes \u00b7 1006 views",
+      "metrics": "6 likes \u00b7 1009 views",
       "published_at": "2026-05-13T18:02:48+00:00",
       "snippet": null,
       "source": "X / @laytoun",
@@ -1274,9 +1319,9 @@
     },
     "b5512701487c56026f2cc58259d43c614d9f7b22": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "1 reply \u00b7 16 likes \u00b7 475 views",
+      "metrics": "1 reply \u00b7 17 likes \u00b7 1 bookmark \u00b7 537 views",
       "published_at": "2026-05-11T13:42:36+00:00",
       "snippet": null,
       "source": "X / @shela_tw",
@@ -1359,9 +1404,9 @@
     },
     "c16f785639404648469dca8ab0721d1ef36a4c93": {
       "first_seen_at": "2026-05-28T08:38:18.928915+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "4 replies \u00b7 3 reposts \u00b7 28 likes \u00b7 6 bookmarks \u00b7 4728 views",
+      "metrics": "4 replies \u00b7 3 reposts \u00b7 29 likes \u00b7 7 bookmarks \u00b7 5501 views",
       "published_at": "2026-05-22T00:13:46+00:00",
       "snippet": null,
       "source": "X / @ArtinBogdanov",
@@ -1370,7 +1415,7 @@
     },
     "c20bc493d5a936d270d19ab6ac9d0c3c35d5c0d4": {
       "first_seen_at": "2026-05-10T22:36:18.438667+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Fri, 08 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-08T07:00:00+00:00",
@@ -1390,7 +1435,7 @@
     },
     "c31168af9b4e61b590ad6b8dbab8f0adc84126e4": {
       "first_seen_at": "2026-05-28T14:34:14.494237+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Fri, 08 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-08T07:00:00+00:00",
@@ -1432,9 +1477,9 @@
     },
     "c5aa31410b887124b6a4b77ce9fbc2cd63257058": {
       "first_seen_at": "2026-05-14T20:42:05.435208+00:00",
-      "last_seen_at": "2026-05-28T08:01:52.048149+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "2 replies \u00b7 1 repost \u00b7 29 likes \u00b7 5 bookmarks \u00b7 1280 views",
+      "metrics": "2 replies \u00b7 1 repost \u00b7 29 likes \u00b7 5 bookmarks \u00b7 1310 views",
       "published_at": "2026-05-09T09:24:28+00:00",
       "snippet": null,
       "source": "X / @laytoun",
@@ -1452,13 +1497,13 @@
     },
     "cd4262446247e7417bd363c0101641cd7a0fab16": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "2 likes \u00b7 137 views",
-      "published_at": "2026-05-12T10:40:07+00:00",
+      "metrics": "1 like \u00b7 117 views",
+      "published_at": "2026-05-12T10:40:07.032000+00:00",
       "snippet": null,
       "source": "X / @richeholmes",
-      "title": "Spotify has released a Command Line Interface tool called \u201cSave to Spotify\u201d. It lets you connect tools like Claude Code generate podcasts from any text source and then store it it to your library. Spotify\u2019s suggested use cases include thing",
+      "title": "Spotify released a command-line interface tool called Save to Spotify.",
       "url": "https://x.com/richeholmes/status/2054149614601711777"
     },
     "cdf1d5e52f86374f6830572bc286997404009fbc": {
@@ -1496,7 +1541,7 @@
     },
     "d0f3956b701e8379b9db64accfa0d3d50b6b3382": {
       "first_seen_at": "2026-05-10T22:36:18.438667+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "3 points \u00b7 0 comments",
       "metrics": null,
       "published_at": "2026-05-08T13:12:59+00:00",
@@ -1507,7 +1552,7 @@
     },
     "d1e8231849006399b9cbab1aadd6d93436ac592d": {
       "first_seen_at": "2026-05-11T20:41:21.278796+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Useful for media pickup trail.",
       "metrics": "1 like \u00b7 365 views",
       "published_at": "2026-05-07T14:41:05.271000+00:00",
@@ -1540,18 +1585,29 @@
     },
     "d8fd0783c1f2ac340706bc8a52a788f7b510c903": {
       "first_seen_at": "2026-05-14T21:04:20.282103+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "\u5c0f\u3055\u306a\u753a\u306e\u6620\u50cf\u5236\u4f5c\u6240@ON CREATE \u00b7 1 month ago \u00b7 1 view \u00b7 19:37",
       "metrics": "1 view \u00b7 0 likes",
-      "published_at": "2026-05-21T09:04:17.186544+00:00",
+      "published_at": "2026-05-21T09:31:48.469315+00:00",
       "snippet": "\u4eca\u65e5\u306e\u30c8\u30d4\u30c3\u30af\u30b9\uff1e Spotify\u3001AI\u751f\u6210\u306e\u97f3\u58f0\u30b3\u30f3\u30c6\u30f3\u30c4\u3092\u4fdd\u5b58\u3067\u304d\u308bCLI\u30c4\u30fc\u30eb\u300cSave to Spotify\u300d\u516c\u958b\u00a0...",
       "source": "YouTube",
       "title": "#1492 NAB Show\u306e\u60c5\u5831\u304b\u3089\u6c17\u306b\u306a\u3063\u305f\u6a5f\u6750\u306f\uff1f\u2461\u30ec\u30f3\u30ba\u7de8",
       "url": "https://www.youtube.com/watch?v=n6_JmDsintI"
     },
+    "da702ddc5ec20d1c811c3825d844e2a9bee92407": {
+      "first_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
+      "meta": "Found via logged-in X live search for save-to-spotify.",
+      "metrics": "2 reposts \u00b7 5 likes \u00b7 1 bookmark \u00b7 596 views",
+      "published_at": "2026-05-08T14:00:16+00:00",
+      "snippet": null,
+      "source": "X / @AgenticAIFdn",
+      "title": "Article The Daily Agentic - May 8, 2026 Spotify Makes Room For The Robot Podcaster New Save to Spotify CLI lets agents like OpenClaw, (etc) turn generated audio from text into private podcast episodes. Notetaking fanatics, take note...",
+      "url": "https://x.com/AgenticAIFdn/status/2052750434289476065"
+    },
     "db9a07bb4b18a4d9b6066ec718bf800d8ed0b9a1": {
       "first_seen_at": "2026-05-11T08:06:35.734219+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "2026-05-11T07:49:17Z",
       "metrics": null,
       "published_at": null,
@@ -1562,7 +1618,7 @@
     },
     "de2101c3cc35f10312f13c93bb51399b59effb44": {
       "first_seen_at": "2026-05-11T08:06:35.734219+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "2026-05-11T07:56:14Z",
       "metrics": null,
       "published_at": null,
@@ -1594,10 +1650,10 @@
     },
     "e16c2c91e811ae80e436457432c2f88813bc9317": {
       "first_seen_at": "2026-05-14T21:27:37.687997+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Morning Pulse India \u00b7 1 month ago \u00b7 No views \u00b7 3:54",
       "metrics": "No views \u00b7 0 likes",
-      "published_at": "2026-05-21T09:04:17.186544+00:00",
+      "published_at": "2026-05-21T09:31:48.469315+00:00",
       "snippet": "... AI-generated podcasts in Spotify (The Verge AI) https://www.theverge.com/entertainment/925916/save-to-spotify-ai-podcasts\u00a0...",
       "source": "YouTube",
       "title": "Anthropic-SpaceX \u0938\u093e\u091d\u0947\u0926\u093e\u0930\u0940, OpenAI \u0935\u093f\u0935\u093e\u0926 | Anthropic, OpenAI & ChatGPT News | May 07, 2026",
@@ -1605,13 +1661,13 @@
     },
     "e29ee06cb5892c3626af312b20a52f57955cbc6e": {
       "first_seen_at": "2026-05-17T13:05:20.341449+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "4 replies \u00b7 3 reposts \u00b7 46 likes \u00b7 42 bookmarks \u00b7 6395 views",
+      "metrics": "4 replies \u00b7 3 reposts \u00b7 46 likes \u00b7 42 bookmarks \u00b7 6432 views",
       "published_at": "2026-05-10T19:26:23+00:00",
       "snippet": null,
       "source": "X / @erhanmeydan",
-      "title": "Translated from Turkish Show original I hadn't seen this. Spotify rolled out a cool feature 3 days ago. Spotify has opened the door for us to add our personal audio content\u2014prepared by AI agents\u2014to our library. Spotify isn't producing the a",
+      "title": "Ben bunu g\u00f6rmemi\u015ftim. Spotify 3 g\u00fcn \u00f6nce g\u00fczel bir \u00f6zellik getirmi\u015f. Spotify, AI ajanlar\u0131n\u0131n haz\u0131rlad\u0131\u011f\u0131 ki\u015fisel sesli i\u00e7eriklerimizi k\u00fct\u00fcphanemize eklemenin yolunu a\u00e7m\u0131\u015f. Spotify ses \u00fcretmiyor. \u0130\u015fin mant\u0131\u011f\u0131 \u00fc\u00e7 par\u00e7al\u0131: \u2192 Talebimiz do\u011frultu",
       "url": "https://x.com/erhanmeydan/status/2053557280172642793"
     },
     "e3cdacac437131b9c7e9289fe8a8c6e12b54df5f": {
@@ -1646,9 +1702,9 @@
     },
     "e80ad873232389d965b5fd989d1b23dbdf746641": {
       "first_seen_at": "2026-05-17T13:05:20.341449+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "7 likes \u00b7 771 views",
+      "metrics": "7 likes \u00b7 775 views",
       "published_at": "2026-05-15T11:42:05+00:00",
       "snippet": null,
       "source": "X / @laytoun",
@@ -1666,7 +1722,7 @@
     },
     "e9705340d53059e117d5eb7c1da38b51dbaebe24": {
       "first_seen_at": "2026-05-17T17:31:49.660220+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Thu, 07 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-07T07:00:00+00:00",
@@ -1697,7 +1753,7 @@
     },
     "ecbc15ce5e4a30c6b9024b6d576a1f1ec1943fbb": {
       "first_seen_at": "2026-05-11T20:41:21.278796+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Shows agent/workflow interpretation.",
       "metrics": "31 views",
       "published_at": "2026-05-09T06:13:59.182000+00:00",
@@ -1719,9 +1775,9 @@
     },
     "ee36b60a089c6a3fcd2804eda80b36d97dccbea6": {
       "first_seen_at": "2026-05-28T08:38:18.928915+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "1 reply \u00b7 2 likes \u00b7 189 views",
+      "metrics": "1 reply \u00b7 2 likes \u00b7 223 views",
       "published_at": "2026-05-22T00:16:27+00:00",
       "snippet": null,
       "source": "X / @ArtinBogdanov",
@@ -1741,24 +1797,24 @@
     },
     "ef378ab22fbde70858455f80fc220ac01a674f3f": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "149 views",
-      "published_at": "2026-05-12T11:57:51+00:00",
+      "metrics": "143 views",
+      "published_at": "2026-05-12T11:57:51.062000+00:00",
       "snippet": null,
       "source": "X / @princedoesai",
-      "title": "Breaking News Spotify launched Personal Podcasts on May 7: a beta Save to Spotify tool that lets desktop agents like OpenClaw, Claude Code, or OpenAI Codex turn a prompt into a private podcast saved to your library. It is available to eligi",
+      "title": "Spotify launched Personal Podcasts: Save to Spotify for desktop agents like OpenClaw, Claude Code, and Codex.",
       "url": "https://x.com/princedoesai/status/2054169176961646615"
     },
     "efc42feef9b9d6a502c57056d8c9f87367e805dc": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "3 likes \u00b7 1 bookmark \u00b7 155 views",
+      "metrics": "3 likes \u00b7 1 bookmark \u00b7 157 views",
       "published_at": "2026-05-09T19:11:09+00:00",
       "snippet": null,
       "source": "X / @ChekosWH",
-      "title": "Translated from Spanish Show original With @ElevenLabs and @GustavS",
+      "title": "con @ElevenLabs y @GustavS 's save-to-spotify puedo tener un resumen de la semana en audio para poder absorber la cantidad de trabajo que hacen mis agentes mas r\u00e1pidamente (y mientras manejo jajaj) Quote",
       "url": "https://x.com/ChekosWH/status/2053191057874235655"
     },
     "f321460660df9265d8ed122fd6b338cb44ac38f2": {
@@ -1774,18 +1830,18 @@
     },
     "f4f021a165ee79d4045e2a11392068e9ec9b6696": {
       "first_seen_at": "2026-05-17T13:05:20.341449+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
-      "metrics": "2 replies \u00b7 3 reposts \u00b7 34 likes \u00b7 6 bookmarks \u00b7 3134 views",
+      "metrics": "2 replies \u00b7 2 reposts \u00b7 33 likes \u00b7 6 bookmarks \u00b7 3158 views",
       "published_at": "2026-05-10T19:58:39+00:00",
       "snippet": null,
       "source": "X / @erhanmeydan",
-      "title": "Translated from Turkish Show original Another busy week, and I struggled to choose again. I've listed what I consider the week's standout developments in my own way\u2014if I've missed anything, I'd be happy if you add it :) \u2192 Anthropic announce",
+      "title": "Yine yo\u011fun bir hafta, yine se\u00e7mekte zorland\u0131m. Kendimce haftan\u0131n \u00f6ne \u00e7\u0131kan geli\u015fmelerini s\u0131ralad\u0131m, atlad\u0131\u011f\u0131m bir \u015fey varsa eklerseniz sevinirim :) \u2192 Anthropic, Code with Claude konferans\u0131nda SpaceX ile Memphis Colossus 1 veri merkezinin ta",
       "url": "https://x.com/erhanmeydan/status/2053565399279763846"
     },
     "f5cf2e5438741f3ee51740a13ec645da78f2bff9": {
       "first_seen_at": "2026-05-10T22:36:18.438667+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Thu, 07 May 2026 07:00:00 GMT",
       "metrics": null,
       "published_at": "2026-05-07T07:00:00+00:00",
@@ -1796,7 +1852,7 @@
     },
     "f7171355073ddba925883f02dbf0d73ccaaa7c51": {
       "first_seen_at": "2026-05-14T20:35:34.993833+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Found via logged-in X live search for save-to-spotify.",
       "metrics": "2 likes \u00b7 95 views",
       "published_at": "2026-05-09T08:52:01.487000+00:00",
@@ -1807,7 +1863,7 @@
     },
     "f73e201c23a4c37009225c6e1a0ec847fa46d2dd": {
       "first_seen_at": "2026-05-14T13:27:06.505365+00:00",
-      "last_seen_at": "2026-06-20T09:04:17.186544+00:00",
+      "last_seen_at": "2026-06-20T09:31:48.469315+00:00",
       "meta": "Tracked via logged-in X browser sweep / curated override.",
       "metrics": "5 likes \u00b7 3 bookmarks \u00b7 1,811 views",
       "published_at": "2026-05-07T14:42:09.450000+00:00",
