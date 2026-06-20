@@ -23,13 +23,46 @@
   <main>
     <section class="panel verdict">
       <p class="eyebrow">Recommendation</p>
-      <h2>Best path: GitHub + ClawHub + proof-led launch loop</h2>
-      <p>Do not start with “here is a skill.” Start with a concrete artifact the skill produces, then link to a one-command install. For OpenClaw skills, publish to <a href="https://clawhub.ai/">ClawHub</a> and keep GitHub as the canonical, source-controlled project. Then submit to directory/search surfaces such as OfficialSkills when eligible, AgentSkill, FindSkills, skills.sh, SkillHub, SkillsMP, SkillRegistry, and awesome lists before doing broader community launches.</p>
+      <h2>Best path: OfficialSkills + GitHub + ClawHub + proof-led launch loop</h2>
+      <p>Do not start with “here is a skill.” Start with a concrete artifact the skill produces, then link to a one-command install. Because this is an official Spotify skill, lead with official-source trust: publish from the Spotify-owned or Spotify-maintained GitHub presence, submit to <a href="https://officialskills.sh/">OfficialSkills</a>, publish to <a href="https://clawhub.ai/">ClawHub</a> for OpenClaw installs, and keep GitHub as the canonical, source-controlled project. Then submit to AgentSkill, FindSkills, skills.sh, SkillHub, SkillsMP, SkillRegistry, and awesome lists before doing broader community launches.</p>
       <div class="priority-list">
-        <article><span>01</span><h3>Foundation</h3><p>GitHub repo, ClawHub listing, verified install, 90-second demo, short “why this exists.”</p></article>
-        <article><span>02</span><h3>Discovery</h3><p>OfficialSkills if eligible, AgentSkill, FindSkills, skills.sh, awesome lists, ClawHub tags, GitHub topics, README SEO.</p></article>
+        <article><span>01</span><h3>Foundation</h3><p>Official Spotify GitHub/source page, OfficialSkills submission, ClawHub listing, verified install, 90-second demo, short “why this exists.”</p></article>
+        <article><span>02</span><h3>Discovery</h3><p>OfficialSkills first, then AgentSkill, FindSkills, skills.sh, awesome lists, ClawHub tags, GitHub topics, README SEO.</p></article>
         <article><span>03</span><h3>Launch</h3><p>Show HN, Product Hunt if packaged as a product, Reddit/Discord community posts, X/LinkedIn thread.</p></article>
       </div>
+    </section>
+
+
+
+    <section class="panel verdict">
+      <p class="eyebrow">Spotify-specific guidance</p>
+      <h2>Use official status as the trust anchor</h2>
+      <p>For a Spotify skill, the biggest advantage is not just utility - it is legitimacy. The page, repo, and directory listings should make it immediately obvious that this is official or officially maintained, what Spotify account permissions it needs, and what actions it can and cannot take.</p>
+      <div class="priority-list">
+        <article><span>Trust</span><h3>Publisher identity</h3><p>Use a Spotify-owned GitHub org/domain, verified links, consistent naming, and official contact/support path.</p></article>
+        <article><span>Safety</span><h3>Scope clarity</h3><p>Document OAuth scopes, read/write behavior, playlist/library changes, rate limits, and confirmation-before-action rules.</p></article>
+        <article><span>Proof</span><h3>Workflow demos</h3><p>Show concrete outcomes: playlist creation, show/episode management, listening-library organization, analytics, or creator workflows.</p></article>
+      </div>
+    </section>
+
+
+
+    <section class="panel">
+      <p class="eyebrow">Onboarding + usability principles</p>
+      <h2>Design the skill as a guided Spotify workflow, not a command catalog</h2>
+      <p>This brief should guide the current launch and future evolutions. The north star: the skill should help an agent turn user intent into safe Spotify outcomes with minimal interrogation, clear consent, and progressive disclosure.</p>
+      <div class="cards compact">
+        <article class="card high"><h3>Start from user intent</h3><p class="tag">Jobs before features</p><p>Route by what the user is trying to accomplish: discover music, create or refine playlists, manage shows/episodes, summarize listening context, prepare a creator asset, or organize a library. Avoid exposing API-shaped primitives as the first experience.</p></article>
+        <article class="card high"><h3>Ask fewer, better questions</h3><p class="tag">Default intelligently</p><p>Use sensible presets and ask only for missing decisions that materially change the result. A good first-run flow asks for goal, source/context, and desired output - then proposes defaults before acting.</p></article>
+        <article class="card high"><h3>Consent before mutation</h3><p class="tag">Trust is the feature</p><p>Read operations can be lightweight. Writes - creating playlists, changing library state, posting/publishing, editing metadata - should preview the action and request confirmation. Make OAuth scopes and account effects understandable.</p></article>
+        <article class="card"><h3>Progressive disclosure</h3><p class="tag">Simple first, powerful later</p><p>Keep the common path short. Reveal advanced controls only when needed: market, privacy, collaborative settings, episode metadata, cover art, timeline assets, analytics windows, or platform-specific constraints.</p></article>
+        <article class="card"><h3>Observable outputs</h3><p class="tag">Show the result</p><p>Every workflow should end with something inspectable: playlist link, before/after diff, episode preview, validation checklist, skipped items, confidence notes, or next recommended action.</p></article>
+        <article class="card"><h3>Recover gracefully</h3><p class="tag">Design for messy accounts</p><p>Handle missing auth, expired tokens, private/unavailable tracks, regional restrictions, rate limits, duplicate playlists, ambiguous titles, and partial failures with clear next steps.</p></article>
+        <article class="card"><h3>Composable workflows</h3><p class="tag">Future-proof the skill</p><p>Structure the skill around reusable intents and validation checkpoints so future Spotify surfaces - audiobooks, podcasts, creator tools, campaign assets, Wrapped-style summaries - can plug in without rewriting the whole onboarding model.</p></article>
+        <article class="card"><h3>Measure activation</h3><p class="tag">Improve from behavior</p><p>Track where users drop: install, auth, first successful read, first confirmed write, first shared artifact. Use that to evolve docs and defaults, not to add more upfront explanation.</p></article>
+        <article class="card"><h3>Agent-readable policy</h3><p class="tag">Make boundaries explicit</p><p>The skill should tell agents when to ask, when to proceed, when to preview, and when to refuse. This is especially important for official Spotify trust and long-term maintainability.</p></article>
+      </div>
+      <p class="note"><strong>Evolution principle:</strong> each new capability should answer three questions before shipping: What user intent does it serve? What is the safest default? What proof tells the user it worked?</p>
     </section>
 
     <section class="panel">
@@ -53,29 +86,30 @@
     <section class="panel">
       <p class="eyebrow">Directory layer</p>
       <h2>Do include OfficialSkills and the other skill directories</h2>
-      <p>The first version of this brief underweighted directory SEO. That was a miss. These sites matter because many users will not start in ClawHub or GitHub - they will search “Claude skills,” “agent skills,” “OpenClaw skills,” or ask an agent to find a tool. Directory presence creates ambient discovery.</p>
+      <p>The first version of this brief underweighted directory SEO. That was a miss. For an official Spotify skill, the directory layer is not optional - it is where the skill’s official identity becomes a trust signal. Many users will not start in ClawHub or GitHub; they will search “Spotify agent skill,” “Claude skills,” “agent skills,” “OpenClaw skills,” or ask an agent to find a tool.</p>
       <div class="cards compact">
-        <article class="card high"><h3>OfficialSkills</h3><p class="tag">Best if the skill is from an official product/team</p><p><a href="https://officialskills.sh/">officialskills.sh</a> indexes agent skills published by official developer teams. Use it if you can credibly publish as the product owner, company, or project maintainer. It is less useful for generic community experiments unless they accept broader submissions later.</p></article>
+        <article class="card high"><h3>OfficialSkills</h3><p class="tag">Top priority for an official Spotify skill</p><p><a href="https://officialskills.sh/">officialskills.sh</a> indexes agent skills published by official developer teams. Since this is an official Spotify skill, this should be one of the first submissions after the canonical repo is ready. The listing should emphasize official publisher identity, install path, supported Spotify workflows, and safety boundaries.</p></article>
         <article class="card high"><h3>AgentSkill</h3><p class="tag">Broad marketplace/search surface</p><p><a href="https://agentskill.sh/">agentskill.sh</a> positions itself as a large cross-agent directory for Claude Code, Cursor, Copilot, Codex, Windsurf, Zed, and more. Good for broad “agent skill” discovery.</p></article>
         <article class="card"><h3>FindSkills</h3><p class="tag">Agent-readable discovery</p><p><a href="https://www.findskills.org/">FindSkills</a> indexes GitHub, ClawHub, and OpenClaw ecosystems, exposes search/API/OpenAPI endpoints, and has an MCP path. This is valuable because agents themselves may use it to discover skills.</p></article>
         <article class="card"><h3>skills.sh</h3><p class="tag">Open agent skills ecosystem</p><p><a href="https://www.skills.sh/">skills.sh</a> presents a simple install-oriented directory for reusable agent capabilities. Worth checking for submission/indexing if the repo is public.</p></article>
         <article class="card"><h3>SkillHub / SkillsMP / SkillRegistry</h3><p class="tag">Additional SEO and comparison surfaces</p><p>These are secondary but useful for long-tail search. Submit or ensure indexing once the canonical repo and ClawHub listing are polished.</p></article>
         <article class="card"><h3>Security-scored directories</h3><p class="tag">Trust signal</p><p>Directories such as SkillsDirectory emphasize scanning and verification. For skills that execute commands, touch credentials, or use external APIs, a “verified/safe” listing can matter more than raw reach.</p></article>
       </div>
-      <p class="note"><strong>Updated recommendation:</strong> add directory submission as Step 2, right after GitHub + ClawHub. Prioritize OfficialSkills only when the publisher identity is official; otherwise prioritize AgentSkill, FindSkills, awesome lists, and community directories.</p>
+      <p class="note"><strong>Updated recommendation for Spotify:</strong> make OfficialSkills a launch-critical channel, not a secondary one. Order should be: official Spotify-owned source/repo, OfficialSkills, ClawHub, then broad directories and community launches.</p>
     </section>
 
     <section class="panel">
       <p class="eyebrow">Packaging checklist</p>
       <h2>Make the skill easy to trust before asking for attention</h2>
       <div class="checkgrid">
-        <label><input type="checkbox"> Outcome-first README: “This skill helps agents do X”</label>
+        <label><input type="checkbox"> Outcome-first README: “This official Spotify skill helps agents do X”</label>
         <label><input type="checkbox"> <code>SKILL.md</code> frontmatter: name, description, required tools/env</label>
-        <label><input type="checkbox"> One-command install: ClawHub + Git fallback</label>
-        <label><input type="checkbox"> 2-3 concrete examples with expected output</label>
-        <label><input type="checkbox"> Demo GIF/video and screenshots</label>
-        <label><input type="checkbox"> Security notes: no secrets, permissions, external writes</label>
-        <label><input type="checkbox"> Tags/topics for search: platform + domain + agent keywords</label>
+        <label><input type="checkbox"> One-command install: OfficialSkills listing + ClawHub + Git fallback</label>
+        <label><input type="checkbox"> 2-3 intent-led examples with expected output and confirmation behavior</label>
+        <label><input type="checkbox"> Demo GIF/video showing onboarding, preview, confirmation, and final Spotify result</label>
+        <label><input type="checkbox"> Spotify-specific safety notes: OAuth scopes, account actions, external writes, playlist/library boundaries</label>
+        <label><input type="checkbox"> Agent-readable policy: when to ask, preview, proceed, confirm, or stop</label>
+        <label><input type="checkbox"> Tags/topics for search: Spotify + platform + domain + agent keywords</label>
         <label><input type="checkbox"> Changelog and versioning</label>
       </div>
     </section>
@@ -84,8 +118,8 @@
       <p class="eyebrow">30-day launch sequence</p>
       <h2>Recommended rollout</h2>
       <div class="timeline">
-        <article><span>Day 0-2</span><h3>Harden the package</h3><p>Validate install, add examples, record a short demo, add GitHub topics, publish to ClawHub, create a landing page.</p></article>
-        <article><span>Day 3-5</span><h3>Seed high-intent discovery</h3><p>Submit to OfficialSkills if eligible, AgentSkill, FindSkills, skills.sh, SkillHub/SkillsMP/SkillRegistry, and awesome lists. Then share in OpenClaw/Claude/Cursor communities with a “looking for testers” framing.</p></article>
+        <article><span>Day 0-2</span><h3>Harden the official package</h3><p>Validate install, define onboarding principles, add Spotify intent-led examples, record a short demo, confirm official publisher identity, add GitHub topics, publish to ClawHub, create a landing page.</p></article>
+        <article><span>Day 3-5</span><h3>Seed high-intent discovery</h3><p>Submit to OfficialSkills first, then AgentSkill, FindSkills, skills.sh, SkillHub/SkillsMP/SkillRegistry, and awesome lists. Then share in OpenClaw/Claude/Cursor communities with an “official Spotify skill, looking for workflow feedback” framing.</p></article>
         <article><span>Day 6-10</span><h3>Artifact-led social posts</h3><p>Post a thread showing the problem, the generated artifact, and the install path. Reuse the same demo as a short video.</p></article>
         <article><span>Day 11-20</span><h3>Show HN / Reddit</h3><p>Launch once there is proof and a tight story. Use a title about the result, not the implementation. Stay in comments.</p></article>
         <article><span>Day 21-30</span><h3>Productize or bundle</h3><p>If there is traction, bundle related skills and consider Product Hunt. Publish a “what we learned” update with usage examples.</p></article>
@@ -95,23 +129,24 @@
     <section class="panel">
       <p class="eyebrow">Copy/paste launch assets</p>
       <h2>Post templates</h2>
-      <details open><summary>GitHub README opener</summary><pre>This skill helps agents [do outcome] without re-explaining the workflow every time.
+      <details open><summary>GitHub README opener</summary><pre>This official Spotify skill helps agents [do Spotify workflow outcome] without re-explaining the workflow every time.
 
-Use it when: [3 bullets]
+Use it when: [3 user intents, not API features]
+Safety model: [read/write behavior, OAuth scopes, confirmation rules]
 Install: openclaw skills install [slug]
 Demo: [link]
 Examples: [link]</pre></details>
-      <details><summary>Show HN title</summary><pre>Show HN: I built an agent skill that turns [input] into [useful output]</pre></details>
-      <details><summary>Reddit / Discord post</summary><pre>I kept running into [specific workflow pain], so I packaged the repeatable part as an agent skill.
+      <details><summary>Show HN title</summary><pre>Show HN: We built an official Spotify agent skill for [workflow/use case]</pre></details>
+      <details><summary>Reddit / Discord post</summary><pre>We packaged [specific Spotify workflow] as an official Spotify agent skill.
 
 Demo: [link]
 Install: [command]
 Repo: [link]
 
-I’m looking for feedback on: [1-2 concrete questions].</pre></details>
-      <details><summary>X / LinkedIn thread hook</summary><pre>Prompts are bad at repeatable workflows.
+We’re looking for feedback on: [1-2 concrete Spotify workflow questions].</pre></details>
+      <details><summary>X / LinkedIn thread hook</summary><pre>Good agent skills turn vague intent into safe, repeatable workflows.
 
-I packaged [workflow] as an agent skill so the agent remembers:
+We packaged [Spotify workflow] as an official agent skill so the agent remembers:
 - when to use it
 - what tools it needs
 - how to validate the result
