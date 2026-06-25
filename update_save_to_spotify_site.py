@@ -48,6 +48,7 @@ YOUTUBE_QUERIES = [
     '"Spotify Personal Podcasts" "AI agents"',
 ]
 CLAWHUB_URL = "https://clawhub.ai/spotify/save-to-spotify"
+CLAUDE_PLUGIN_URL = "https://claude.com/plugins/save-to-spotify"
 SPOTIFY_COMMUNITY_URL = "https://community.spotify.com/t5/Other-Podcasts-Partners-etc/Save-to-Spotify-Feedback-amp-Issues/m-p/7446423#M132368"
 SPOTIFY_COMMUNITY_RSS_URL = "https://community.spotify.com/spotify/rss/message?board.id=002&message.id=132368"
 SPOTIFY_COMMUNITY_HEADERS = {
@@ -243,6 +244,7 @@ CURATED_SOCIAL = [
 PRIMARY_LINKS = [
     ("Spotify Newsroom", "Save Your Personal Podcast to Spotify and Listen Anywhere", "https://newsroom.spotify.com/2026-05-07/personal-podcasts-launch/"),
     ("GitHub", "spotify/save-to-spotify CLI", "https://github.com/spotify/save-to-spotify"),
+    ("Claude Plugins", "save-to-spotify Claude Code plugin", CLAUDE_PLUGIN_URL),
     ("The Verge", "OpenClaw and Claude can put your AI-generated podcasts in Spotify", "https://www.theverge.com/entertainment/925916/save-to-spotify-ai-podcasts"),
     ("TechCrunch", "Spotify wants to become the home for AI-generated personal audio", "https://techcrunch.com/2026/05/07/spotify-wants-to-become-the-home-for-ai-generated-personal-audio/"),
     ("9to5Google", "Spotify can now save Personal Podcasts with your calendar and AI agents", "https://9to5google.com/2026/05/07/spotify-personal-podcasts-ai-agents/"),
@@ -380,6 +382,37 @@ def clawhub_stats():
         return stats, None
     except Exception as e:
         return None, f"ClawHub stats fetch failed: {e!r}"
+
+
+def claude_plugin_stats():
+    """Fetch public Claude plugin directory stats for the Save to Spotify plugin."""
+    try:
+        doc = fetch_bytes(CLAUDE_PLUGIN_URL).decode("utf-8", errors="replace")
+        title = _strip_html((re.search(r"<h1[^>]*>(.*?)</h1>", doc, re.S) or [None, "save-to-spotify"])[1])
+        stats = {"url": CLAUDE_PLUGIN_URL, "title": title}
+
+        # The hero stats row currently renders as label "Installs" followed by a
+        # format-number div. Keep this narrow so related-plugin install counts do
+        # not get picked up if the page markup shifts.
+        installs_match = re.search(
+            r'>Installs</div>\s*<div[^>]*>\s*<div[^>]*class="[^"]*format-number[^"]*"[^>]*>\s*([0-9,]+)\s*</div>',
+            doc,
+            re.S | re.I,
+        )
+        if not installs_match:
+            installs_match = re.search(r">Installs</div>.{0,500}?>([0-9][0-9,]*)</div>", doc, re.S | re.I)
+        if installs_match:
+            stats["installs"] = int(installs_match.group(1).replace(",", ""))
+
+        command_match = re.search(r'data-copy="([^"]*save-to-spotify@[^"]*)"', doc)
+        if command_match:
+            stats["install_command"] = html.unescape(command_match.group(1)).strip()
+
+        if "installs" not in stats:
+            return None, "Claude plugin install count not found in current page markup"
+        return stats, None
+    except Exception as e:
+        return None, f"Claude plugin stats fetch failed: {e!r}"
 
 
 def reddit_hits(limit: int = 100):
@@ -1378,6 +1411,13 @@ def update_github_download_history(state: dict, gh: dict | None, today: dt.date)
     return history
 
 
+def update_claude_plugin_install_history(state: dict, claude_plugin: dict | None, today: dt.date):
+    history = state.setdefault("claude_plugin_installs_by_day", {})
+    if claude_plugin and claude_plugin.get("installs") is not None:
+        history[today.isoformat()] = int(claude_plugin["installs"])
+    return history
+
+
 def render_github_stars_chart(history: dict, today: dt.date, now_utc: dt.datetime) -> str:
     series = {}
     for day, stars in (history or {}).items():
@@ -1408,6 +1448,21 @@ def render_github_downloads_chart(history: dict, today: dt.date, now_utc: dt.dat
     return render_line_chart(series, today, "No GitHub download history recorded yet.", "Line chart of GitHub release downloads per day", note, "downloads")
 
 
+def render_claude_plugin_installs_chart(history: dict, today: dt.date, now_utc: dt.datetime) -> str:
+    series = {}
+    for day, installs in (history or {}).items():
+        try:
+            series[dt.date.fromisoformat(day)] = int(installs)
+        except Exception:
+            continue
+    if series:
+        latest_day = max(series)
+        note = f'Claude plugin installs tracked daily starting {time_html(min(series).isoformat(), now_utc)}. Latest: {series[latest_day]} installs on {time_html(latest_day.isoformat(), now_utc)}.'
+    else:
+        note = ""
+    return render_line_chart(series, today, "No Claude plugin install history recorded yet.", "Line chart of Claude plugin installs per day", note, "installs")
+
+
 def render():
     now_utc = dt.datetime.now(dt.timezone.utc)
     now_stockholm = now_utc.astimezone(dt.ZoneInfo("Europe/Stockholm")) if hasattr(dt, "ZoneInfo") else now_utc
@@ -1423,6 +1478,7 @@ def main():
     news, news_err = google_news_items()
     gh, gh_err = github_stats()
     clawhub, clawhub_err = clawhub_stats()
+    claude_plugin, claude_plugin_err = claude_plugin_stats()
     hn, hn_err = hn_hits()
     reddit, reddit_err = reddit_hits()
     spotify_community, spotify_community_err = spotify_community_threads()
@@ -1442,7 +1498,7 @@ def main():
     x_browser = sort_by_recency(filter_presave_titles(filter_min_media_date([i for i in x_browser if not is_removed_url(i.get("url", ""), remove_urls)], now_utc, "published_at")), now_utc, "published_at")
     if gh and gh.get("latest_open"):
         gh["latest_open"] = sort_by_recency(gh["latest_open"], now_utc, "created_at")
-    errors = [e for e in [news_err, gh_err, clawhub_err, hn_err, reddit_err, spotify_community_err, youtube_err, youtube_browser_err, youtube_metrics_err, x_search_err, x_browser_err] if e]
+    errors = [e for e in [news_err, gh_err, clawhub_err, claude_plugin_err, hn_err, reddit_err, spotify_community_err, youtube_err, youtube_browser_err, youtube_metrics_err, x_search_err, x_browser_err] if e]
 
     seen_state = load_seen_state()
     seen = seen_state.setdefault("seen", {})
@@ -1467,11 +1523,13 @@ def main():
     seen_state["last_updated_at"] = now_utc.isoformat()
     github_star_history = update_github_star_history(seen_state, gh, now_local.date())
     github_download_history = update_github_download_history(seen_state, gh, now_local.date())
+    claude_plugin_install_history = update_claude_plugin_install_history(seen_state, claude_plugin, now_local.date())
     save_seen_state(seen_state)
     new_items_html = render_new_items(new_items, initialized, now_utc)
     social_chart_html = render_social_posts_chart(seen, now_local.date(), now_utc)
     github_stars_chart_html = render_github_stars_chart(github_star_history, now_local.date(), now_utc)
     github_downloads_chart_html = render_github_downloads_chart(github_download_history, now_local.date(), now_utc)
+    claude_plugin_installs_chart_html = render_claude_plugin_installs_chart(claude_plugin_install_history, now_local.date(), now_utc)
 
     gh_stats_html = "<p class='empty'>GitHub stats unavailable.</p>"
     if gh:
@@ -1492,6 +1550,14 @@ def main():
             ("Current version", f"v{clawhub.get('version')}" if clawhub.get("version") else None),
             ("Updated", time_html(clawhub.get("updated"), now_utc) if clawhub.get("updated") else None),
             ("License", clawhub.get("license")),
+        ])
+
+    claude_plugin_stats_html = "<p class='empty'>Claude plugin stats unavailable.</p>"
+    if claude_plugin:
+        claude_plugin_stats_html = render_stat_grid([
+            ("Installs", claude_plugin.get("installs")),
+            ("Plugin", claude_plugin.get("title")),
+            ("Install command", claude_plugin.get("install_command")),
         ])
 
     news_html = "\n".join(
@@ -1624,15 +1690,17 @@ def main():
     </section>
     <section class="card">
       <h2>Current read</h2>
-      <p class="bigstat">Conversation is mostly press + Spotify/dev X + GitHub, with ClawHub install/download stats, Reddit, and the Spotify Community feedback thread tracked directly. Seen posts are persisted so fresh items appear first.</p>
+      <p class="bigstat">Conversation is mostly press + Spotify/dev X + GitHub, with ClawHub plus Claude plugin install/download stats, Reddit, and the Spotify Community feedback thread tracked directly. Seen posts are persisted so fresh items appear first.</p>
     </section>
     <div class="grid">
       <section class="card"><h2>Primary links</h2><ul>{primary_html}</ul></section>
       <section class="card"><h2>ClawHub skill stats</h2>{clawhub_stats_html}<small>{link(CLAWHUB_URL, "Source: ClawHub skill page")}</small></section>
+      <section class="card"><h2>Claude plugin stats</h2>{claude_plugin_stats_html}<small>{link(CLAUDE_PLUGIN_URL, "Source: Claude plugin page")}</small></section>
       <section class="card"><h2>GitHub repo pulse</h2>{gh_stats_html}<ul>{issues_html}</ul></section>
     </div>
     <section class="card"><h2>GitHub stars per day</h2>{github_stars_chart_html}</section>
     <section class="card"><h2>GitHub downloads over time</h2>{github_downloads_chart_html}</section>
+    <section class="card"><h2>Claude plugin installs over time</h2>{claude_plugin_installs_chart_html}</section>
     <section class="card"><h2>Latest news pickup</h2><ul>{news_html}</ul></section>
     <section class="card"><h2>Social + media posts per day</h2>{social_chart_html}</section>
     <section class="social-sites">
@@ -1646,7 +1714,7 @@ def main():
     <section class="card"><h2>Remove list</h2><p class="empty">{len(remove_urls)} URLs excluded from this snapshot. {pruned_count} previously tracked matches pruned this run. {normalized_date_count} stored dates normalized for chart stability.</p></section>
     {errors_html}
   </main>
-  <footer>Generated by Nyx. Sources are fetched from Google News RSS, GitHub API, ClawHub public skill page, Spotify Community, YouTube searches, Hacker News Algolia API, tools/reddit_reader.py, logged-in X browser sweeps, plus curated social overrides.</footer>
+  <footer>Generated by Nyx. Sources are fetched from Google News RSS, GitHub API, ClawHub public skill page, Claude plugin page, Spotify Community, YouTube searches, Hacker News Algolia API, tools/reddit_reader.py, logged-in X browser sweeps, plus curated social overrides.</footer>
   <script>
     (() => {{
       const hideTooltip = (wrap) => wrap?.querySelector('.chart-tooltip')?.classList.remove('visible');
