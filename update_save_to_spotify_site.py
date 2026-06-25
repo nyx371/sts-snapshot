@@ -1411,6 +1411,16 @@ def update_github_download_history(state: dict, gh: dict | None, today: dt.date)
     return history
 
 
+def update_clawhub_download_history(state: dict, clawhub: dict | None, today: dt.date):
+    history = state.setdefault("clawhub_downloads_by_day", {})
+    if clawhub and clawhub.get("downloads") is not None:
+        try:
+            history[today.isoformat()] = int(str(clawhub["downloads"]).replace(",", ""))
+        except Exception:
+            pass
+    return history
+
+
 def update_claude_plugin_install_history(state: dict, claude_plugin: dict | None, today: dt.date):
     history = state.setdefault("claude_plugin_installs_by_day", {})
     if claude_plugin and claude_plugin.get("installs") is not None:
@@ -1446,6 +1456,21 @@ def render_github_downloads_chart(history: dict, today: dt.date, now_utc: dt.dat
     else:
         note = ""
     return render_line_chart(series, today, "No GitHub download history recorded yet.", "Line chart of GitHub release downloads per day", note, "downloads")
+
+
+def render_clawhub_downloads_chart(history: dict, today: dt.date, now_utc: dt.datetime) -> str:
+    series = {}
+    for day, downloads in (history or {}).items():
+        try:
+            series[dt.date.fromisoformat(day)] = int(downloads)
+        except Exception:
+            continue
+    if series:
+        latest_day = max(series)
+        note = f'ClawHub downloads tracked daily starting {time_html(min(series).isoformat(), now_utc)}. Latest: {series[latest_day]} downloads on {time_html(latest_day.isoformat(), now_utc)}.'
+    else:
+        note = ""
+    return render_line_chart(series, today, "No ClawHub download history recorded yet.", "Line chart of ClawHub downloads per day", note, "downloads")
 
 
 def render_claude_plugin_installs_chart(history: dict, today: dt.date, now_utc: dt.datetime) -> str:
@@ -1523,12 +1548,14 @@ def main():
     seen_state["last_updated_at"] = now_utc.isoformat()
     github_star_history = update_github_star_history(seen_state, gh, now_local.date())
     github_download_history = update_github_download_history(seen_state, gh, now_local.date())
+    clawhub_download_history = update_clawhub_download_history(seen_state, clawhub, now_local.date())
     claude_plugin_install_history = update_claude_plugin_install_history(seen_state, claude_plugin, now_local.date())
     save_seen_state(seen_state)
     new_items_html = render_new_items(new_items, initialized, now_utc)
     social_chart_html = render_social_posts_chart(seen, now_local.date(), now_utc)
     github_stars_chart_html = render_github_stars_chart(github_star_history, now_local.date(), now_utc)
     github_downloads_chart_html = render_github_downloads_chart(github_download_history, now_local.date(), now_utc)
+    clawhub_downloads_chart_html = render_clawhub_downloads_chart(clawhub_download_history, now_local.date(), now_utc)
     claude_plugin_installs_chart_html = render_claude_plugin_installs_chart(claude_plugin_install_history, now_local.date(), now_utc)
 
     gh_stats_html = "<p class='empty'>GitHub stats unavailable.</p>"
@@ -1641,10 +1668,13 @@ def main():
     .pill {{ border:1px solid var(--line); background:#ffffff0a; color:var(--muted); border-radius:999px; padding:.45rem .75rem; font-size:.9rem; }}
     main {{ max-width:1120px; margin:auto; padding: 1rem clamp(1rem, 5vw, 4rem) 4rem; display:grid; gap:1rem; }}
     .grid {{ display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1rem; }}
+    .tracker-row {{ display:grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap:1rem; align-items:stretch; }}
+    .tracker-row .chart-stack {{ display:grid; gap:1rem; }}
+    .tracker-row > .card {{ min-width:0; }}
     .social-sites {{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:1rem; align-items:start; }}
     .social-site h2 {{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }}
     .count {{ color:var(--muted); font-size:.78rem; font-weight:500; }}
-    @media (max-width: 860px) {{ .social-sites {{ grid-template-columns: 1fr; }} }}
+    @media (max-width: 860px) {{ .social-sites, .tracker-row {{ grid-template-columns: 1fr; }} }}
     .card {{ border:1px solid var(--line); background:var(--card); border-radius:24px; padding:1.2rem; box-shadow: 0 20px 80px #0005; backdrop-filter: blur(16px); }}
     h2 {{ margin:.1rem 0 1rem; font-size:1.1rem; letter-spacing:-.02em; }}
     ul {{ list-style:none; padding:0; margin:0; display:grid; gap:.85rem; }}
@@ -1692,15 +1722,22 @@ def main():
       <h2>Current read</h2>
       <p class="bigstat">Conversation is mostly press + Spotify/dev X + GitHub, with ClawHub plus Claude plugin install/download stats, Reddit, and the Spotify Community feedback thread tracked directly. Seen posts are persisted so fresh items appear first.</p>
     </section>
-    <div class="grid">
-      <section class="card"><h2>Primary links</h2><ul>{primary_html}</ul></section>
-      <section class="card"><h2>ClawHub skill stats</h2>{clawhub_stats_html}<small>{link(CLAWHUB_URL, "Source: ClawHub skill page")}</small></section>
-      <section class="card"><h2>Claude plugin stats</h2>{claude_plugin_stats_html}<small>{link(CLAUDE_PLUGIN_URL, "Source: Claude plugin page")}</small></section>
+    <section class="card"><h2>Primary links</h2><ul>{primary_html}</ul></section>
+    <section class="tracker-row">
       <section class="card"><h2>GitHub repo pulse</h2>{gh_stats_html}<ul>{issues_html}</ul></section>
-    </div>
-    <section class="card"><h2>GitHub stars per day</h2>{github_stars_chart_html}</section>
-    <section class="card"><h2>GitHub downloads over time</h2>{github_downloads_chart_html}</section>
-    <section class="card"><h2>Claude plugin installs over time</h2>{claude_plugin_installs_chart_html}</section>
+      <div class="chart-stack">
+        <section class="card"><h2>GitHub stars per day</h2>{github_stars_chart_html}</section>
+        <section class="card"><h2>GitHub downloads over time</h2>{github_downloads_chart_html}</section>
+      </div>
+    </section>
+    <section class="tracker-row">
+      <section class="card"><h2>ClawHub skill stats</h2>{clawhub_stats_html}<small>{link(CLAWHUB_URL, "Source: ClawHub skill page")}</small></section>
+      <section class="card"><h2>ClawHub downloads over time</h2>{clawhub_downloads_chart_html}</section>
+    </section>
+    <section class="tracker-row">
+      <section class="card"><h2>Claude plugin stats</h2>{claude_plugin_stats_html}<small>{link(CLAUDE_PLUGIN_URL, "Source: Claude plugin page")}</small></section>
+      <section class="card"><h2>Claude plugin installs over time</h2>{claude_plugin_installs_chart_html}</section>
+    </section>
     <section class="card"><h2>Latest news pickup</h2><ul>{news_html}</ul></section>
     <section class="card"><h2>Social + media posts per day</h2>{social_chart_html}</section>
     <section class="social-sites">
