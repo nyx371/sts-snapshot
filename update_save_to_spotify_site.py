@@ -1310,7 +1310,29 @@ def render_line_chart(series: dict, today: dt.date, empty_text: str, aria_label:
     while d <= end:
         days.append(d)
         d += dt.timedelta(days=1)
-    values = [dated.get(day, 0) for day in days]
+
+    # Missing fetch days are gaps, not zeros. Interpolate between surrounding
+    # observations and forward/back-fill edges so charts do not draw fake cliffs.
+    known_days = sorted(dated)
+
+    def value_for_day(day: dt.date):
+        if day in dated:
+            return dated[day]
+        prev_days = [known for known in known_days if known < day]
+        next_days = [known for known in known_days if known > day]
+        if prev_days and next_days:
+            prev_day, next_day = prev_days[-1], next_days[0]
+            prev_v, next_v = dated[prev_day], dated[next_day]
+            total = max(1, (next_day - prev_day).days)
+            offset = (day - prev_day).days
+            return round(prev_v + ((next_v - prev_v) * offset / total))
+        if prev_days:
+            return dated[prev_days[-1]]
+        if next_days:
+            return dated[next_days[0]]
+        return 0
+
+    values = [value_for_day(day) for day in days]
 
     width, height = 820, 240
     left, right, top, bottom = 46, 18, 20, 42
