@@ -1360,9 +1360,14 @@ def render_line_chart(series: dict, today: dt.date, empty_text: str, aria_label:
         f'</g>'
         for i, (day, v) in enumerate(zip(days, values))
     )
+    max_x_labels = 10
+    if len(days) <= max_x_labels:
+        label_indexes = list(range(len(days)))
+    else:
+        label_indexes = sorted({round(i * (len(days) - 1) / (max_x_labels - 1)) for i in range(max_x_labels)})
     labels = "".join(
-        f'<text x="{x_at(i):.1f}" y="{height - 16}" text-anchor="middle"><title>{esc(day.isoformat())}</title>{esc(relative_time_text(day.isoformat(), dt.datetime.combine(today, dt.time.min, tzinfo=dt.timezone.utc)))}</text>'
-        for i, day in enumerate(days)
+        f'<text x="{x_at(i):.1f}" y="{height - 16}" text-anchor="middle"><title>{esc(days[i].isoformat())}</title>{esc(relative_time_text(days[i].isoformat(), dt.datetime.combine(today, dt.time.min, tzinfo=dt.timezone.utc)))}</text>'
+        for i in label_indexes
     )
     grid = "".join(
         f'<g><line x1="{left}" x2="{width - right}" y1="{y_at(t):.1f}" y2="{y_at(t):.1f}" />'
