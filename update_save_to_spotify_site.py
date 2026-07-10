@@ -31,6 +31,7 @@ X_LOGGED_IN_POSTS_PATH = pathlib.Path("x_logged_in_posts.json")
 X_LOGGED_IN_SWEEP_SCRIPT = pathlib.Path("x_logged_in_sweep.mjs")
 YOUTUBE_RECENT_POSTS_PATH = pathlib.Path("youtube_recent_posts.json")
 YOUTUBE_RECENT_SWEEP_SCRIPT = pathlib.Path("youtube_recent_sweep.mjs")
+DATA_JSON_PATH = pathlib.Path("data.json")
 MIN_MEDIA_DATE = dt.datetime(2026, 5, 7, tzinfo=dt.timezone.utc)
 
 SEARCH_TERMS = [
@@ -1455,6 +1456,57 @@ def update_claude_plugin_install_history(state: dict, claude_plugin: dict | None
     return history
 
 
+def parse_daily_history(history: dict) -> dict[dt.date, int]:
+    series = {}
+    for day, value in (history or {}).items():
+        try:
+            series[dt.date.fromisoformat(day)] = int(value)
+        except Exception:
+            continue
+    return series
+
+
+def forward_fill_daily_history(history: dict, today: dt.date) -> dict[str, int]:
+    """Return a contiguous daily series, carrying forward the last known value.
+
+    The source sites can fail or be unavailable on a given snapshot run. For the
+    public data export, keep a stable per-day shape by using the last available
+    number for any missing day through today's local date.
+    """
+    series = parse_daily_history(history)
+    if not series:
+        return {}
+    start = min(series)
+    out = {}
+    last_value = None
+    day = start
+    one_day = dt.timedelta(days=1)
+    while day <= today:
+        if day in series:
+            last_value = series[day]
+        if last_value is not None:
+            out[day.isoformat()] = last_value
+        day += one_day
+    return out
+
+
+def write_download_data_json(
+    github_download_history: dict,
+    clawhub_download_history: dict,
+    claude_plugin_install_history: dict,
+    today: dt.date,
+):
+    data = {
+        "github_downloads": forward_fill_daily_history(github_download_history, today),
+        "clawhub_downloads": forward_fill_daily_history(clawhub_download_history, today),
+        "claude_plugin_installations": forward_fill_daily_history(claude_plugin_install_history, today),
+    }
+    with DATA_JSON_PATH.open("w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+        f.write("\n")
+    return data
+
+
 def render_github_stars_chart(history: dict, today: dt.date, now_utc: dt.datetime) -> str:
     series = {}
     for day, stars in (history or {}).items():
@@ -1577,6 +1629,12 @@ def main():
     github_download_history = update_github_download_history(seen_state, gh, now_local.date())
     clawhub_download_history = update_clawhub_download_history(seen_state, clawhub, now_local.date())
     claude_plugin_install_history = update_claude_plugin_install_history(seen_state, claude_plugin, now_local.date())
+    write_download_data_json(
+        github_download_history,
+        clawhub_download_history,
+        claude_plugin_install_history,
+        now_local.date(),
+    )
     save_seen_state(seen_state)
     new_items_html = render_new_items(new_items, initialized, now_utc)
     social_chart_html = render_social_posts_chart(seen, now_local.date(), now_utc)
