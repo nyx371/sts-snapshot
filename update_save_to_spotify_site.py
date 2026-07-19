@@ -1710,7 +1710,7 @@ def main():
     ) or "<li>No YouTube videos found this run.</li>"
 
     hn_html = "\n".join(
-        f'<li><strong>Hacker News</strong>: {link(i["url"], i["title"])} <small>{meta_html([f"{i.get('points')} points", f"{i.get('comments')} comments", i.get("created_at")], now_utc, {2})}</small></li>'
+        f'<li><strong>Hacker News</strong>: {link(i["url"], i["title"])} <small>{meta_html([str(i.get("points")) + " points", str(i.get("comments")) + " comments", i.get("created_at")], now_utc, {2})}</small></li>'
         for i in hn
     ) or "<li>No Hacker News hits found this run.</li>"
 
